@@ -1,0 +1,93 @@
+{
+	"name": "BlueSpiceSocialTags",
+	"version": "3.0.0-alpha",
+	"url": "https://help.bluespice.com/index.php/BlueSpiceSocial",
+	"author": "Patric Wirth",
+	"descriptionmsg": "bs-socialactivitystream-desc",
+	"type": "bluespice",
+	"attributes": {
+		"BlueSpiceFoundation": {
+			"Extensions": {
+				"BlueSpiceSocialTags": {
+					"className": "\\BlueSpice\\Social\\Tags\\Extension",
+					"extPath": "/BlueSpiceSocialTags",
+					"status": "beta",
+					"package": "BlueSpiceSocial"
+				}
+			},
+			"PermissionRegistry": {
+				"social-tagging": {
+					"type": "namespace",
+					"roles": [
+						"admin",
+						"editor"
+					]
+				}
+			}
+		}
+	},
+	"MessagesDirs": {
+		"BlueSpiceSocialTags": [
+			"i18n"
+		]
+	},
+	"AutoloadNamespaces": {
+		"BlueSpice\\Social\\Tags\\": "src/"
+	},
+	"APIModules": {
+		"bs-socialtags-tasks": "\\BlueSpice\\Social\\Tags\\Api\\Task\\Tags"
+	},
+	"GroupPermissions": {
+		"*": {
+			"social-tagging": false
+		},
+		"user": {
+			"social-tagging": true
+		},
+		"sysop": {
+			"social-tagging": true
+		}
+	},
+	"ResourceModules": {
+		"ext.bluespice.social.tags.styles": {
+			"targets": [ "desktop", "mobile" ],
+			"styles": [
+				"bluespice.social.tags.css"
+			]
+		},
+		"ext.bluespice.social.tags": {
+			"dependencies": [
+				"ext.bluespice.social.entity"
+			],
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"bluespice.social.tags.js",
+				"filters/EntityListMenuFilterTags.js"
+			],
+			"messages": [
+				"bs-socialtags-var-tags",
+				"bs-socialtags-contentswitch-discussion",
+				"bs-socialtags-contentswitch-relatedbytag"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "resources",
+		"remoteExtPath": "BlueSpiceSocialTags/resources"
+	},
+	"Hooks": {
+		"BSSocialModuleDepths": "\\BlueSpice\\Social\\Tags\\Hook\\BSSocialModuleDepths\\AddModules::callback",
+		"BSEntitySetValuesByObject": "\\BlueSpice\\Social\\Tags\\Hook\\BSEntitySetValuesByObject\\SetTags::callback",
+		"BSEntityGetFullData": "\\BlueSpice\\Social\\Tags\\Hook\\BSEntityGetFullData\\AddTags::callback",
+		"BSEntityConfigDefaults": [
+			"\\BlueSpice\\Social\\Tags\\Hook\\BSEntityConfigDefaults\\IsTagable::callback",
+			"\\BlueSpice\\Social\\Tags\\Hook\\BSEntityConfigDefaults\\TagPermission::callback"
+		],
+		"BSSocialEntityOutputRenderAfterContent": "\\BlueSpice\\Social\\Tags\\Hook\\BSSocialEntityOutputRenderAfterContent\\AddTagsSection::callback",
+		"BSSocialEntityOutputRenderBeforeContent": "\\BlueSpice\\Social\\Tags\\Hook\\BSSocialEntityOutputRenderBeforeContent\\AddTagInfo::callback",
+		"BSSocialEntitiesRegisterValidators": "\\BlueSpice\\Social\\Tags\\Hook\\BSSocialEntitiesRegisterValidators\\RegisterValidators::callback",
+		"BSSocialEntitiesmakeList": "\\BlueSpice\\Social\\Tags\\Extension::onBSSocialEntitiesmakeList",
+		"BSEntityConfigAttributeDefinitions": "\\BlueSpice\\Social\\Tags\\Hook\\BSEntityConfigAttributeDefinitions\\AddTags::callback"
+	},
+	"manifest_version": 2
+}

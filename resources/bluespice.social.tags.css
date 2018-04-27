@@ -1,0 +1,21 @@
+.bs-social-entityaftercontent-tags {
+	display: inline-block;
+	margin-right: 10px;
+	cursor: pointer;
+}
+.bs-social-beforecontent-tags, .bs-social-beforecontent-tags a{
+	display: inline-block;
+	margin-right: 5px;
+	word-break: keep-all !important;
+	white-space: nowrap;
+	clear:both;
+}
+.bs-social-entityaftercontent-tags::before {
+	content: '\e935';
+	font-family: 'icomoon';
+	font-size: 13px;
+	color: #3e5389 !important;
+}
+.bs-social-entityaftercontent-tags:hover {
+	text-decoration: none !important;
+}

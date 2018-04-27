@@ -1,0 +1,135 @@
+/**
+ *
+ * @author     Patric Wirth <wirth@hallowelt.com>
+ * @package    BluespiceSocial
+ * @subpackage BSSocialGroups
+ * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v2 or later
+ */
+
+
+$( document ).bind( 'BSSocialEntityInit', function( event, Entity ) {
+	if( Entity.type === 'discussion' ) {
+		var $contentswitch = $(
+			'.bs-socialtags-relatedentities-contentswitch'
+		);
+		if( $contentswitch && $contentswitch.length > 0 ) {
+			$contentswitch.on( 'click', function() {
+				var $left = $(this).siblings(
+					'.bs-socialtags-relatedentities-left'
+				);
+				var $right = $(this).siblings(
+					'.bs-socialtags-relatedentities-right'
+				);
+
+				var msg = $right.is(':visible')
+					? 'bs-socialtags-contentswitch-relatedbytag'
+					: 'bs-socialtags-contentswitch-discussion';
+
+				$left.toggle();
+				$right.toggle();
+				$(this).attr( 'value', mw.message( msg ).plain() );
+			});
+		}
+	}
+	if( !Entity.getConfig().IsTagable ) {
+		return;
+	}
+	if( Entity.hasParent() ) {
+		return;
+	}
+	var $lnk = Entity.getEl().find( '.bs-social-entityaftercontent-tags' );
+
+	$lnk.on('click', function() {
+		if( !Entity.$tagEditor ) {
+			Entity.$tagEditor = $(
+				'<div class="bs-social-entity-aftercontent-tageditor"></div>'
+			).hide();
+			Entity.$tagEditor.insertAfter(
+				Entity.getEl().find('.bs-social-entity-aftercontent').first()
+			);
+			Entity.$tagSelection = $(
+				'<div><select style="width:100%"></select></div>'
+			);
+			Entity.tagSubmitButton = new OO.ui.ButtonInputWidget( {
+				label: mw.message( 'bs-social-editor-ok' ).plain(),
+				flags: ['progressive', 'primary'],
+				align: 'right'
+			});
+			Entity.tagCancelButton = new OO.ui.ButtonInputWidget( {
+				label: mw.message( 'bs-social-editor-cancel' ).plain(),
+				align: 'right'
+			});
+			Entity.tagSubmitButton.on( 'click', function() {
+				var val = Entity.$tagSelection.find('select').select2( "val" );
+				if( !val ) {
+					val = [];
+				}
+				Entity.showLoadMask();
+				bs.api.tasks.execSilent(
+					'socialtags',
+					'editTags',
+					{ id: Entity.id, tags: val }
+				).done( function( response ) {
+					Entity.replaceEL( response.payload.view );
+				})
+				.then(function(){
+					Entity.hideLoadMask();
+				});
+			});
+			Entity.tagCancelButton.on( 'click', function() {
+				Entity.$tagEditor.toggle();
+				Entity.$tagEditor.remove();
+				Entity.$tagEditor = null;
+			});
+
+			var items = [], tags = Entity.data.get('tags', []);
+			for( var i = 0; i < tags.length; i++ ) {
+				items.push( { id: tags[i], text: tags[i] });
+			}
+
+			Entity.$tagEditor.append( Entity.$tagSelection );
+			Entity.$tagEditor.append( Entity.tagCancelButton.$element );
+			Entity.$tagEditor.append( Entity.tagSubmitButton.$element );
+			var $select2 = Entity.$tagSelection.find('select').select2({
+				multiple: true,
+				allowClear: true,
+				ajax: {
+					url: mw.util.wikiScript( 'api' ),
+					dataType: 'json',
+					tape: 'POST',
+					data: function (params) {
+						return {
+							action: 'bs-socialtitlequery-store',
+							query: params.term
+						};
+					},
+					processResults: function (data) {
+						var results = [];
+						$.each(data.results, function (index, result) {
+							if( result.type && result.type === 'namespace' ) {
+								return;
+							}
+							results.push({
+								id: result.displayText,
+								text: result.displayText
+							});
+						});
+						return {
+							results: results
+						};
+					}
+				},
+				minimumInputLength: 1
+			});
+			for( var i = 0; i < tags.length; i++ ) {
+				$select2.append(
+					new Option( tags[i], tags[i], true, true )
+				);
+			}
+			$select2.trigger('change');
+		}
+
+		Entity.$tagEditor.toggle();
+	});
+});

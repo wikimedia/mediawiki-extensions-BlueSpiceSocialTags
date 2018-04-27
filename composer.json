@@ -1,0 +1,9 @@
+{
+	"name": "mediawiki/blue-spice-social-tags",
+	"type": "mediawiki-extension",
+	"description": "Adds tagging functionality to social entities",
+	"license": "GPL-3.0",
+	"require": {
+		"composer/installers": "~1.0"
+	}
+}

@@ -38,7 +38,9 @@ $( document ).bind( 'BSSocialEntityInit', function( event, Entity ) {
 	if( Entity.hasParent() ) {
 		return;
 	}
-	var $lnk = Entity.getEl().find( '.bs-social-entityaftercontent-tags' );
+
+	var $lnk = Entity.getContainer( Entity.AFTER_CONTENT_CONTAINER )
+			.find( '.bs-social-entityaftercontent-tags' );
 
 	$lnk.on('click', function() {
 		if( !Entity.$tagEditor ) {

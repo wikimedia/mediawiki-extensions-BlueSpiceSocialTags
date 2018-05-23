@@ -33,6 +33,16 @@ use BlueSpice\Social\Topics\Entity\Discussion;
 
 class Extension extends \BlueSpice\Extension {
 
+	public static function onRegistration() {
+		$GLOBALS['bsgSocialTagsTimelineAfterContentNamespaceBlackList'] = array_merge(
+			$GLOBALS['bsgSocialTagsTimelineAfterContentNamespaceBlackList'],
+			[
+				NS_MEDIA,
+				NS_MEDIAWIKI,
+				NS_SPECIAL
+			]
+		);
+	}
 	/**
 	 * HACKY!
 	 * @param string $sOut

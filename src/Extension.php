@@ -28,9 +28,6 @@
 
 namespace BlueSpice\Social\Tags;
 
-use BlueSpice\Social\Entities;
-use BlueSpice\Social\Topics\Entity\Discussion;
-
 class Extension extends \BlueSpice\Extension {
 
 	public static function onRegistration() {
@@ -39,65 +36,10 @@ class Extension extends \BlueSpice\Extension {
 			[
 				NS_MEDIA,
 				NS_MEDIAWIKI,
-				NS_SPECIAL
+				NS_SPECIAL,
+				NS_USER,
+				NS_BSSOCIAL
 			]
 		);
-	}
-	/**
-	 * HACKY!
-	 * @param string $sOut
-	 * @param array $aElOptions
-	 * @param Status $oStatus
-	 * @param mixed $mContext
-	 * @param array $aCallbacks
-	 */
-	public static function onBSSocialEntitiesmakeList( &$sOut, &$aElOptions, $oStatus, $mContext, &$aCallbacks, &$sSuffix, &$sPrefix ) {
-		if( !$mContext || !$mContext instanceof Discussion ) {
-			return true;
-		}
-		$aButtonClasses = [
-			'bs-socialtags-relatedentities-contentswitch',
-			'mw-ui-button',
-			'mw-ui-progressive'
-		];
-		$sPrefix .= \Html::input(
-			'contentswitch',
-			wfMessage( 'bs-socialtags-contentswitch-relatedbytag' )->plain(),
-			'button',
-			[ 'class' => implode( ' ', $aButtonClasses ) ]
-		);
-		$sPrefix .= \Html::openElement( 'div', [
-			'class' => 'bs-socialtags-relatedentities-left',
-		]);
-		//list goes here
-		$sSuffix .= \Html::closeElement( 'div' );
-		$sSuffix .= \Html::openElement( 'div', [
-			'class' => 'bs-socialtags-relatedentities-right',
-			'style' => 'display:none;',
-		]);
-		$sSuffix .= \Html::openElement( 'div', [
-			'class' => 'bs-socialtags-relatedentities',
-		]);
-		$sSuffix .= Entities::makeList(
-			[],
-			[
-				'tags' => [
-					$mContext->getRelatedTitle()->getFullText(),
-					\Title::newFromText(
-						$mContext->getRelatedTitle()->getText(),
-						$mContext->getRelatedTitle()->getNamespace()-1
-					)->getFullText()
-				],
-			],
-			0,
-			[],
-			(object)[
-				'type' => 'BlueSpiceSocialTags',
-				'title' => $mContext->getRelatedTitle(),
-			]
-		);
-		$sSuffix .= \Html::closeElement( 'div' );
-		$sSuffix .= \Html::closeElement( 'div' );
-		return true;
 	}
 }

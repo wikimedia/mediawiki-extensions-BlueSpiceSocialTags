@@ -93,7 +93,6 @@
 		"BSSocialEntityOutputRenderAfterContent": "\\BlueSpice\\Social\\Tags\\Hook\\BSSocialEntityOutputRenderAfterContent\\AddTagsSection::callback",
 		"BSSocialEntityOutputRenderBeforeContent": "\\BlueSpice\\Social\\Tags\\Hook\\BSSocialEntityOutputRenderBeforeContent\\AddTagInfo::callback",
 		"BSSocialEntitiesRegisterValidators": "\\BlueSpice\\Social\\Tags\\Hook\\BSSocialEntitiesRegisterValidators\\RegisterValidators::callback",
-		"BSSocialEntitiesmakeList": "\\BlueSpice\\Social\\Tags\\Extension::onBSSocialEntitiesmakeList",
 		"BSEntityConfigAttributeDefinitions": "\\BlueSpice\\Social\\Tags\\Hook\\BSEntityConfigAttributeDefinitions\\AddTags::callback",
 		"SkinTemplateOutputPageBeforeExec": "\\BlueSpice\\Social\\Tags\\Hook\\SkinTemplateOutputPageBeforeExec\\AddTimeline::callback"
 	},

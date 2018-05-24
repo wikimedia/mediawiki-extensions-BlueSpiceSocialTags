@@ -3,6 +3,7 @@
 namespace BlueSpice\Social\Tags\EntityListContext;
 
 use BlueSpice\Data\Filter\ListValue;
+use BlueSpice\Social\Entity;
 
 class AfterContent extends \BlueSpice\Social\EntityListContext {
 	const CONFIG_NAME_OUTPUT_TYPE = 'EntityListAfterContentOutputType';
@@ -34,7 +35,7 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 	}
 
 	public function getSortProperty() {
-		return 'timestamptouched';
+		return Entity::ATTR_TIMESTAMP_TOUCHED;
 	}
 
 	public function useEndlessScroll() {
@@ -54,11 +55,7 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 	}
 
 	public function getFilters() {
-		$filters = [];
-		if( $tagFilter = $this->getTagsFilter() ) {
-			$filters[] = $tagFilter;
-		}
-		return $filters;
+		return array_merge( parent::getFilters() , [ $this->getTagsFilter() ] );
 	}
 
 	public function getLockedFilterNames() {

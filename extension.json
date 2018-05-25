@@ -26,6 +26,7 @@
 			}
 		}
 	},
+	"callback": "\\BlueSpice\\Social\\Tags\\Extension::onRegistration",
 	"MessagesDirs": {
 		"BlueSpiceSocialTags": [
 			"i18n"
@@ -48,6 +49,12 @@
 			"social-tagging": true
 		}
 	},
+	"config_prefix": "bsg",
+	"config": {
+		"SocialTagsTimelineAfterContentNamespaceBlackList": {
+			"value": []
+		}
+	},
 	"ResourceModules": {
 		"ext.bluespice.social.tags.styles": {
 			"targets": [ "desktop", "mobile" ],
@@ -62,7 +69,7 @@
 			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"bluespice.social.tags.js",
-				"filters/EntityListMenuFilterTags.js"
+				"EntityListMenu/Filter/Tags.js"
 			],
 			"messages": [
 				"bs-socialtags-var-tags",
@@ -86,8 +93,8 @@
 		"BSSocialEntityOutputRenderAfterContent": "\\BlueSpice\\Social\\Tags\\Hook\\BSSocialEntityOutputRenderAfterContent\\AddTagsSection::callback",
 		"BSSocialEntityOutputRenderBeforeContent": "\\BlueSpice\\Social\\Tags\\Hook\\BSSocialEntityOutputRenderBeforeContent\\AddTagInfo::callback",
 		"BSSocialEntitiesRegisterValidators": "\\BlueSpice\\Social\\Tags\\Hook\\BSSocialEntitiesRegisterValidators\\RegisterValidators::callback",
-		"BSSocialEntitiesmakeList": "\\BlueSpice\\Social\\Tags\\Extension::onBSSocialEntitiesmakeList",
-		"BSEntityConfigAttributeDefinitions": "\\BlueSpice\\Social\\Tags\\Hook\\BSEntityConfigAttributeDefinitions\\AddTags::callback"
+		"BSEntityConfigAttributeDefinitions": "\\BlueSpice\\Social\\Tags\\Hook\\BSEntityConfigAttributeDefinitions\\AddTags::callback",
+		"SkinTemplateOutputPageBeforeExec": "\\BlueSpice\\Social\\Tags\\Hook\\SkinTemplateOutputPageBeforeExec\\AddTimeline::callback"
 	},
 	"manifest_version": 2
 }

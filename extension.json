@@ -53,6 +53,9 @@
 	"config": {
 		"SocialTagsTimelineAfterContentNamespaceBlackList": {
 			"value": []
+		},
+		"SocialTagsTimelineAfterContentShow": {
+			"value": false
 		}
 	},
 	"ResourceModules": {

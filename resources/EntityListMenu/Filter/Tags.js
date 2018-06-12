@@ -124,11 +124,14 @@ bs.social.EntityListMenuFilterTags.prototype.deactivate = function() {
 };
 
 bs.social.EntityListMenuFilterTags.prototype.getData = function( data ) {
-	data.filter = data.filter || [];
 	var val = this.$element.find( 'select' ).select2( "val" );
 	if( !Array.isArray( val ) ) {
 		val = val.split();
 	}
+	if( val.length < 1 ) {
+		return data;
+	}
+	data.filter = data.filter || [];
 	for( var i = 0; i < data.filter.length; i++ ) {
 		if( data.filter[i].property !== 'tags' ) {
 			continue;

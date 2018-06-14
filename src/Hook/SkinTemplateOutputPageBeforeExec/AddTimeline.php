@@ -37,6 +37,9 @@ class AddTimeline extends SkinTemplateOutputPageBeforeExec {
 		if( !$this->skin->getTitle()->exists() ) {
 			return true;
 		}
+		if( !$this->getConfig()->get( 'SocialTagsTimelineAfterContentShow' ) ) {
+			return true;
+		}
 		$namespace = $this->skin->getTitle()->getNamespace();
 		$nsBlackList = $this->getConfig()->get(
 			'SocialTagsTimelineAfterContentNamespaceBlackList'
@@ -72,8 +75,9 @@ class AddTimeline extends SkinTemplateOutputPageBeforeExec {
 			new Params( [ 'context' => $context ])
 		);
 		$item = [
-			'timeline' => $renderer->render(),
+			'socialtags' => $renderer->render(),
 		];
+
 		$this->mergeSkinDataArray(
 			\BlueSpice\SkinData::AFTER_CONTENT,
 			$item

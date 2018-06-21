@@ -113,10 +113,17 @@ class Tags extends \BSApiTasksBase {
 		} else {
 			$oResult->message = $oStatus->getHTML();
 		}
+		$renderer = $oEntity->getRenderer( $this->getContext() );
 		$oResult->payload['entity'] = \FormatJson::encode( $oEntity );
 		$oResult->payload['entityconfig'][$oEntity->get( Entity::ATTR_TYPE )]
 			= \FormatJson::encode( $oEntity->getConfig() );
-		$oResult->payload['view'] = $oEntity->render();
+		if( empty( $vTaskData->outputtype ) ) {
+			$oResult->payload['view'] = $renderer->render();
+		} else {
+			$oResult->payload['view'] = $renderer->render(
+				$vTaskData->outputtype
+			);
+		}
 		return $oResult;
 	}
 

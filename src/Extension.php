@@ -38,7 +38,7 @@ class Extension extends \BlueSpice\Extension {
 				NS_MEDIAWIKI,
 				NS_SPECIAL,
 				NS_USER,
-				NS_BSSOCIAL
+				NS_SOCIALENTITY
 			]
 		);
 	}

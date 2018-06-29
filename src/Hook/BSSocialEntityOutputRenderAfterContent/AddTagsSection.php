@@ -27,14 +27,31 @@ class AddTagsSection extends BSSocialEntityOutputRenderAfterContent {
 			return true;
 		}
 
+		$countTags = count( $oEntity->tags );
+
 		$sView = '';
 		$sView .= \XML::openElement("a", array(
 			'class' => 'bs-social-entityaftercontent-tags'
 		));
-		$sView .= wfMessage(
+
+		// Only present on mobile view.
+		$sView .= \Html::element(
+			'span',
+			['class' => 'bs-social-count-short'],
+			$countTags
+		);
+
+		$msg = wfMessage(
 			'bs-socialtags-tagstext',
-			count( $oEntity->tags )
-		)->parse();
+			$countTags
+		);
+
+		$sView .= \Html::element(
+			'span',
+			['class' => 'bs-social-count-default'],
+			$msg->parse()
+		);
+
 		$sView .= \XML::closeElement( "a" );
 
 		$this->aViews[] = $sView;

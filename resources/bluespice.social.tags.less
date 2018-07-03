@@ -1,3 +1,6 @@
+@bs-primary-light-background: #98A7C4;
+@bs-light-background: #F4F4F4;
+
 .bs-social-entityaftercontent-tags {
 	display: inline-block;
 	margin-right: 10px;
@@ -18,4 +21,19 @@
 }
 .bs-social-entityaftercontent-tags:hover {
 	text-decoration: none !important;
+}
+
+.bs-social-entity-aftercontent-tageditor {
+	padding: 10px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	background: @bs-light-background;
+	max-width: 100%;
+	width: 700px;
+	border-top: 1px solid @bs-primary-light-background;
+	margin: auto;
+	margin-bottom: 10px;
+
+	.select2-container {
+		margin-bottom: 20px;
+	}
 }

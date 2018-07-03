@@ -63,7 +63,7 @@
 		"ext.bluespice.social.tags.styles": {
 			"targets": [ "desktop", "mobile" ],
 			"styles": [
-				"bluespice.social.tags.css"
+				"bluespice.social.tags.less"
 			]
 		},
 		"ext.bluespice.social.tags": {

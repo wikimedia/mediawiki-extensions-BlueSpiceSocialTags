@@ -5,8 +5,8 @@
 		]
 	},
 	"bs-socialtags-desc": "BSSocial",
-	"bs-socialtags-tagstext": "{{plural:$1|Tag|Tags}}($1)",
-	"bs-socialtags-var-tags": "Tags",
+	"bs-socialtags-tagstext": "Linked {{plural:$1|article|articles}}($1)",
+	"bs-socialtags-var-tags": "Linked articles",
 	"bs-socialtags-contentswitch-discussion": "Show topics",
 	"bs-socialtags-contentswitch-relatedbytag": "Show related entries"
 }

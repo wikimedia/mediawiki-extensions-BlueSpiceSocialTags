@@ -5,8 +5,8 @@
 		]
 	},
 	"bs-socialtags-desc": "BSSocial",
-	"bs-socialtags-tagstext": "{{plural:$1|Tag|Tags}}($1)",
-	"bs-socialtags-var-tags": "Tags",
+	"bs-socialtags-tagstext": "{{plural:$1|Verknüpfter|Verknüpfte}} Artikel($1)",
+	"bs-socialtags-var-tags": "Verknüpfte Artikel",
 	"bs-socialtags-contentswitch-discussion": "Zeige Themen",
 	"bs-socialtags-contentswitch-relatedbytag": "Zeige zugeordnete Beiträge"
 }

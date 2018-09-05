@@ -1,5 +1,4 @@
-
-$( document ).bind( 'BSSocialEntityEditorAdvancedFieldset', function( event, EntityEditor, advancedfieldset ) {
+$( document ).on( 'BSSocialEntityEditorAdvancedFieldset', function( event, EntityEditor, advancedfieldset ) {
 	if( !EntityEditor.getEntity().getConfig().IsTagable ) {
 		return;
 	}
@@ -58,7 +57,7 @@ $( document ).bind( 'BSSocialEntityEditorAdvancedFieldset', function( event, Ent
 	]);
 });
 
-$( document ).bind( 'BSSocialEntityInit', function( event, Entity ) {
+$( document ).on( 'BSSocialEntityInit', function( event, Entity ) {
 	if( Entity.type === 'discussion' ) {
 		var $contentswitch = $(
 			'.bs-socialtags-relatedentities-contentswitch'

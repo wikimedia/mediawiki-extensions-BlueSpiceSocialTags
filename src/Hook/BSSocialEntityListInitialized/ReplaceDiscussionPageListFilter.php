@@ -15,6 +15,9 @@ class ReplaceDiscussionPageListFilter extends BSSocialEntityListInitialized {
 		if( !$this->entityList->getContext() instanceof DiscussionPage ) {
 			return true;
 		}
+		if( !$title = $this->entityList->getContext()->getParent()->getRelatedTitle() ) {
+			return true;
+		}
 		return false;
 	}
 
@@ -25,9 +28,13 @@ class ReplaceDiscussionPageListFilter extends BSSocialEntityListInitialized {
 				return $e->{Numeric::KEY_PROPERTY} !== Topic::ATTR_DISCUSSION_TITLE_ID;
 			}
 		);
+		$title = $this->entityList->getContext()->getParent()->getRelatedTitle();
 		$this->args[EntityList::PARAM_FILTER][] = (object)[
 			ListValue::KEY_PROPERTY => 'tags',
-			ListValue::KEY_VALUE => ['Hauptseite', 'Talk:Hauptseite'],
+			ListValue::KEY_VALUE => [
+				$title->getFullText(),
+				$title->getOtherPage()->getFullText()
+			],
 			ListValue::KEY_COMPARISON => ListValue::COMPARISON_CONTAINS,
 			ListValue::KEY_TYPE => FieldType::LISTVALUE
 		];

@@ -3,7 +3,7 @@
 namespace BlueSpice\Social\Tags\Hook;
 use BlueSpice\Social\Entity;
 
-abstract class BSSocialTagsForceTags extends \BlueSpice\Hook {
+abstract class BSSocialTagsBeforeSetTags extends \BlueSpice\Hook {
 
 	/**
 	 *

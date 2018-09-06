@@ -36,7 +36,7 @@ class SetTags extends BSEntitySetValuesByObject {
 				[ $this->entity->getRelatedTitle()->getFullText() ]
 			)));
 		}
-		\Hooks::run( 'BSSocialTagsForceTags', [
+		\Hooks::run( 'BSSocialTagsBeforeSetTags', [
 			$this->entity,
 			&$this->data->tags
 		]);

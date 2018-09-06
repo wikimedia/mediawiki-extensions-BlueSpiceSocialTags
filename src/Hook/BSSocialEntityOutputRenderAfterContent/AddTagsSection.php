@@ -27,7 +27,7 @@ class AddTagsSection extends BSSocialEntityOutputRenderAfterContent {
 			return true;
 		}
 
-		$countTags = count( $oEntity->tags );
+		$countTags = count( $oEntity->get( 'tags', [] ) );
 
 		$sView = '';
 		$sView .= \XML::openElement("a", array(

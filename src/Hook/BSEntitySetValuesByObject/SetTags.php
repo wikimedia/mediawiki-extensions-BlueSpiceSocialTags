@@ -8,26 +8,12 @@ use BlueSpice\Social\Entity\Action;
 class SetTags extends BSEntitySetValuesByObject {
 
 	protected function checkEntity() {
-		if( !$this->entity->getConfig( 'IsTagable' ) ) {
+		if( !$this->entity->getConfig( 'IsTagable' ) && !$this->entity instanceof Action ) {
 			return false;
 		}
 		if( $this->entity->hasParent() ) {
 			return false;
 		}
-		if( !$this->entity->exists() ) {
-			return false;
-		}
-		return true;
-	}
-
-	protected function tagActionEntity() {
-		if( !$this->entity->getRelatedTitle() ) {
-			return false;
-		}
-		//autotag action entities!
-		$this->entity->tags = [
-			$this->entity->getRelatedTitle()->getFullText()
-		];
 		return true;
 	}
 
@@ -35,18 +21,26 @@ class SetTags extends BSEntitySetValuesByObject {
 		if( !$this->entity instanceof Entity ) {
 			return true;
 		}
-		if( empty( $this->entity->tags ) ) {
-			$this->entity->tags = [];
+		if( empty( $this->entity->get( 'tags', [] ) ) ) {
+			$this->entity->set( 'tags', [] );
 		}
 		if( !$this->checkEntity() ) {
 			return true;
 		}
-
-		if( !empty( $this->data->tags ) ) {
-			$this->entity->tags = $this->data->tags;
-		} elseif( $this->entity instanceof Action ) {
-			$this->tagActionEntity();
+		if( empty( $this->data->tags ) ) {
+			$this->data->tags = [];
 		}
+		if( $this->entity->getConfig( 'ForceRelatedTitleTag' ) && $this->entity->getRelatedTitle() ) {
+			$this->data->tags = array_values( array_unique( array_merge(
+				$this->data->tags,
+				[ $this->entity->getRelatedTitle()->getFullText() ]
+			)));
+		}
+		\Hooks::run( 'BSSocialTagsBeforeSetTags', [
+			$this->entity,
+			&$this->data->tags
+		]);
+		$this->entity->set( 'tags', $this->data->tags );
 
 		return true;
 	}

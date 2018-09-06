@@ -21,10 +21,10 @@ class AddTags extends BSEntityGetFullData {
 		if( empty( $this->data['tags'] ) ) {
 			$this->data['tags'] = [];
 		}
-		if( empty( $this->entity->tags ) ) {
+		if( empty( $this->entity->get( 'tags', [] ) ) ) {
 			return true;
 		}
-		$this->data['tags'] = $this->entity->tags;
+		$this->data['tags'] = $this->entity->get( 'tags', [] );
 		return true;
 	}
 }

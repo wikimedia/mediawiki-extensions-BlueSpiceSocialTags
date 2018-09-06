@@ -50,6 +50,9 @@
 			"social-tagging": true
 		}
 	},
+	"SpecialPages": {
+		"SocialTags": "\\BlueSpice\\Social\\Tags\\Special\\Tags"
+	},
 	"config_prefix": "bsg",
 	"config": {
 		"SocialTagsTimelineAfterContentNamespaceBlackList": {
@@ -97,7 +100,9 @@
 		"BSSocialEntityOutputRenderAfterContent": "\\BlueSpice\\Social\\Tags\\Hook\\BSSocialEntityOutputRenderAfterContent\\AddTagsSection::callback",
 		"BSSocialEntityOutputRenderBeforeContent": "\\BlueSpice\\Social\\Tags\\Hook\\BSSocialEntityOutputRenderBeforeContent\\AddTagInfo::callback",
 		"BSEntityConfigAttributeDefinitions": "\\BlueSpice\\Social\\Tags\\Hook\\BSEntityConfigAttributeDefinitions\\AddTags::callback",
-		"SkinTemplateOutputPageBeforeExec": "\\BlueSpice\\Social\\Tags\\Hook\\SkinTemplateOutputPageBeforeExec\\AddTimeline::callback"
+		"SkinTemplateOutputPageBeforeExec": "\\BlueSpice\\Social\\Tags\\Hook\\SkinTemplateOutputPageBeforeExec\\AddTimeline::callback",
+		"BSSocialEntityListInitialized": "\\BlueSpice\\Social\\Tags\\Hook\\BSSocialEntityListInitialized\\ReplaceDiscussionPageListFilter::callback",
+		"TitleMoveComplete": "\\BlueSpice\\Social\\Tags\\Hook\\TitleMoveComplete\\UpdateTags::callback"
 	},
 	"manifest_version": 2
 }

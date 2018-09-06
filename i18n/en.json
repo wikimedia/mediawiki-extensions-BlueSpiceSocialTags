@@ -8,5 +8,7 @@
 	"bs-socialtags-tagstext": "Linked {{plural:$1|article|articles}}($1)",
 	"bs-socialtags-var-tags": "Linked articles",
 	"bs-socialtags-contentswitch-discussion": "Show topics",
-	"bs-socialtags-contentswitch-relatedbytag": "Show related entries"
+	"bs-socialtags-contentswitch-relatedbytag": "Show related entries",
+	"socialtags": "Linked articles",
+	"bs-socialtags-special-heading": "Linked articles"
 }

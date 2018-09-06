@@ -8,5 +8,7 @@
 	"bs-socialtags-tagstext": "{{plural:$1|Verknüpfter|Verknüpfte}} Artikel($1)",
 	"bs-socialtags-var-tags": "Verknüpfte Artikel",
 	"bs-socialtags-contentswitch-discussion": "Zeige Themen",
-	"bs-socialtags-contentswitch-relatedbytag": "Zeige zugeordnete Beiträge"
+	"bs-socialtags-contentswitch-relatedbytag": "Zeige zugeordnete Beiträge",
+	"socialtags": "Verknüpfte Artikel",
+	"bs-socialtags-special-heading": "Verknüpfte Artikel"
 }

@@ -43,13 +43,15 @@ $( document ).on( 'BSSocialEntityEditorAdvancedFieldset', function( event, Entit
 		},
 		minimumInputLength: 1
 	});
-	for( var i = 0; i < EntityEditor.getEntity().data.get( 'tags' ).length; i++ ) {
+
+	for( var i = 0; i < EntityEditor.getEntity().data.get( 'tags', [] ).length; i++ ) {
 		var tag = EntityEditor.getEntity().data.get( 'tags' )[i];
 		tags.select2.append(
 			new Option( tag, tag, true, true )
 		);
 	}
 	tags.select2.trigger( 'change' );
+
 	EntityEditor.tags = tags;
 	EntityEditor.fields.tags = EntityEditor.tags;
 	advancedfieldset.addItems( [

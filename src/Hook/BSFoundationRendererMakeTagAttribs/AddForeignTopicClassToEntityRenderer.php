@@ -16,8 +16,7 @@ class AddForeignTopicClassToEntityRenderer extends BSFoundationRendererMakeTagAt
 		if( $this->renderer->getEntity()->getType() !== 'topic' ) {
 			return true;
 		}
-		if( !$this->renderer->getContext() instanceof DiscussionPage
-			/*&& !$this->renderer->getContext() instanceof AfterContent*/ ) {
+		if( !$this->renderer->getContext() instanceof DiscussionPage ) {
 			//currently foreign topics will not be displayed in after article
 			//content
 			return true;

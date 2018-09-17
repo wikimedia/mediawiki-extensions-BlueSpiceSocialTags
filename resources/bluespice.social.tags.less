@@ -37,3 +37,25 @@
 		margin-bottom: 20px;
 	}
 }
+
+.bs-social-entity {
+	&.bs-social-entity-output-Short,
+	&.bs-social-entity-output-Default,
+	&.bs-social-entity-output-Page {
+
+		&.foreign {
+			& > .bs-social-entity-wrapper {
+				& > .bs-social-entity-right {
+					background-color: lightgrey;
+					border: 1px solid grey;
+
+					&:before {
+						background-color: lightgrey;
+						border-top: 1px solid grey;
+						border-left: 1px solid grey;
+					}
+				}
+			}
+		}
+	}
+}

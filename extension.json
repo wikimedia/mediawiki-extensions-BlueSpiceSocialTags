@@ -102,7 +102,8 @@
 		"BSEntityConfigAttributeDefinitions": "\\BlueSpice\\Social\\Tags\\Hook\\BSEntityConfigAttributeDefinitions\\AddTags::callback",
 		"SkinTemplateOutputPageBeforeExec": "\\BlueSpice\\Social\\Tags\\Hook\\SkinTemplateOutputPageBeforeExec\\AddTimeline::callback",
 		"BSSocialEntityListInitialized": "\\BlueSpice\\Social\\Tags\\Hook\\BSSocialEntityListInitialized\\ReplaceDiscussionPageListFilter::callback",
-		"TitleMoveComplete": "\\BlueSpice\\Social\\Tags\\Hook\\TitleMoveComplete\\UpdateTags::callback"
+		"TitleMoveComplete": "\\BlueSpice\\Social\\Tags\\Hook\\TitleMoveComplete\\UpdateTags::callback",
+		"BSFoundationRendererMakeTagAttribs": "\\BlueSpice\\Social\\Tags\\Hook\\BSFoundationRendererMakeTagAttribs\\AddForeignTopicClassToEntityRenderer::callback"
 	},
 	"manifest_version": 2
 }

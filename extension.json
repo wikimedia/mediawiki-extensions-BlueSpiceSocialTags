@@ -21,7 +21,11 @@
 					"type": "namespace",
 					"roles": [
 						"admin",
-						"editor"
+						"author",
+						"commenter",
+						"editor",
+						"maintenanceadmin",
+						"reviewer"
 					]
 				}
 			}

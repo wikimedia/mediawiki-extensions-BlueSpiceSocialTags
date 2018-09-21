@@ -4,7 +4,7 @@
 			"Patric Wirth <wirth@hallowelt.com>"
 		]
 	},
-	"bs-socialtags-desc": "BSSocial",
+	"bs-socialtags-desc": "Adds tagging functionality to social entities",
 	"bs-socialtags-tagstext": "Linked {{plural:$1|article|articles}}($1)",
 	"bs-socialtags-var-tags": "Linked articles",
 	"bs-socialtags-contentswitch-discussion": "Show topics",

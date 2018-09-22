@@ -22,6 +22,12 @@ class AddForeignTopicClassToEntityRenderer extends BSFoundationRendererMakeTagAt
 			return true;
 		}
 
+		if( !$this->renderer->getEntity()->getRelatedTitle() ) {
+			return true;
+		}
+		if( !$this->renderer->getContext()->getTitle() ) {
+			return true;
+		}
 		if( $this->renderer->getEntity()->getRelatedTitle()->getNamespace() < 0 ) {
 			return true;
 		}

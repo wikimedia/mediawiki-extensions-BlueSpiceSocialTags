@@ -28,6 +28,9 @@
 						"reviewer"
 					]
 				}
+			},
+			"LessVarsRegistry": {
+				"bs-social-background-color-foreign": "#D6DCE7"
 			}
 		}
 	},
@@ -71,7 +74,8 @@
 			"targets": [ "desktop", "mobile" ],
 			"styles": [
 				"bluespice.social.tags.less"
-			]
+			],
+			"class": "\\BlueSpice\\ResourceModule\\LessVars"
 		},
 		"ext.bluespice.social.tags": {
 			"dependencies": [

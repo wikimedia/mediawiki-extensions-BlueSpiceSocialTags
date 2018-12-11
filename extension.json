@@ -71,7 +71,6 @@
 	},
 	"ResourceModules": {
 		"ext.bluespice.social.tags.styles": {
-			"targets": [ "desktop", "mobile" ],
 			"styles": [
 				"bluespice.social.tags.less"
 			],
@@ -81,7 +80,6 @@
 			"dependencies": [
 				"ext.bluespice.social.entity"
 			],
-			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"bluespice.social.tags.js",
 				"EntityListMenu/Filter/Tags.js"

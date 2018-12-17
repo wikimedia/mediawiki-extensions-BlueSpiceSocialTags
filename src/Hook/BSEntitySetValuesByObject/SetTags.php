@@ -8,7 +8,7 @@ use BlueSpice\Social\Entity\Action;
 class SetTags extends BSEntitySetValuesByObject {
 
 	protected function checkEntity() {
-		if( !$this->entity->getConfig( 'IsTagable' ) && !$this->entity instanceof Action ) {
+		if( !$this->entity->getConfig( 'IsTagable' ) || !$this->entity instanceof Action ) {
 			return false;
 		}
 		if( $this->entity->hasParent() ) {

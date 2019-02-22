@@ -26,6 +26,8 @@
  * @filesource
  */
 namespace BlueSpice\Social\Tags\Api\Task;
+
+use BlueSpice\Services;
 use BlueSpice\Social\Entity;
 
 /**
@@ -58,7 +60,9 @@ class Tags extends \BSApiTasksBase {
 		if( empty( $vTaskData->tags ) ) {
 			$vTaskData->tags = [];
 		}
-		$oEntity = Entity::newFromID( $vTaskData->id );
+		$oEntity = Services::getInstance()->getBSEntityFactory()->newFromID(
+			$vTaskData->id, Entity::NS
+		);
 		if( !$oEntity instanceof Entity || !$oEntity->exists() ) {
 			return $oResult;
 		}
@@ -103,9 +107,7 @@ class Tags extends \BSApiTasksBase {
 		if( empty($vTaskData->tags) ) {
 			$oEntity->tags = []; //force emptytags :(
 		}
-		$oEntity->setValuesByObject( (object)[
-			"tags" => $vTaskData->tags
-		]);
+		$oEntity->set( "tags", $vTaskData->tags );
 		$oEntity->setUnsavedChanges();
 		$oStatus = $oEntity->save( $this->getUser() );
 		if( $oStatus->isGood() ) {

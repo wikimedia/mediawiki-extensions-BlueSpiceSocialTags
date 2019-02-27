@@ -6,7 +6,7 @@ use BlueSpice\Hook\BSEntityConfigDefaults;
 class ForceRelatedTitleTag extends BSEntityConfigDefaults {
 
 	protected function doProcess() {
-		$this->defaultSettings['ForceRelatedTitleTag'] = false;
+		$this->defaultSettings['ForceRelatedTitleTag'] = true;
 		return true;
 	}
 }

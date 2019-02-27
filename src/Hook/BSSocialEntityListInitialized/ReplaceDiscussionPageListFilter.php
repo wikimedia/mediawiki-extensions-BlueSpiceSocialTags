@@ -29,12 +29,15 @@ class ReplaceDiscussionPageListFilter extends BSSocialEntityListInitialized {
 			}
 		);
 		$title = $this->entityList->getContext()->getParent()->getRelatedTitle();
+		$value = [];
+		$value[0] = $title->getFullText();
+		if ( $title->getOtherPage() ) {
+			$value[1] = $title->getOtherPage()->getFullText();
+		}
+
 		$this->args[EntityList::PARAM_FILTER][] = (object)[
 			ListValue::KEY_PROPERTY => 'tags',
-			ListValue::KEY_VALUE => [
-				$title->getFullText(),
-				$title->getOtherPage()->getFullText()
-			],
+			ListValue::KEY_VALUE => $value,
 			ListValue::KEY_COMPARISON => ListValue::COMPARISON_CONTAINS,
 			ListValue::KEY_TYPE => FieldType::LISTVALUE
 		];
@@ -43,7 +46,7 @@ class ReplaceDiscussionPageListFilter extends BSSocialEntityListInitialized {
 				continue;
 			}
 			unset( $name );
-			return;
+			break;
 		}
 		$this->args[EntityList::PARAM_LOCKED_FILTER_NAMES][] = 'tags';
 	}

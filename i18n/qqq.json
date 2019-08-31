@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Patric Wirth <wirth@hallowelt.com>"
+		]
+	},
+	"bs-socialtags-desc": "{{desc|name=BlueSpiceSocialTags}}",
+	"bs-socialtags-tagstext": "Short Label that displays the number of linked pages. Use PLURAL.\n* $1 - Number of linked pages",
+	"bs-socialtags-var-tags": "Label for entry field \"tags\".\n{{Identical|Linked pages}}",
+	"socialtags": "Special page name for [[Special:SocialTags]] special page.\n{{Identical|Linked pages}}",
+	"bs-socialtags-special-heading": "Special page header for [[Special:SocialTags]] special page.\n{{Identical|Linked pages}}",
+	"apihelp-bs-socialtags-tasks-summary": "{{doc-apihelp-summary|bs-socialtags-tasks}}",
+	"action-social-tagging": "{{doc-action|social-tagging}}",
+	"right-social-tagging": "{{doc-right|social-tagging}}"
+}

@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Patric Wirth <wirth@hallowelt.com>"
+		]
+	},
+	"bs-socialtags-desc": "Fügt Tagging-Funktionalität für BlueSpiceSocial-Entitäten hinzu",
+	"bs-socialtags-tagstext": "{{plural:$1|Verknüpfter|Verknüpfte}} Artikel ($1)",
+	"bs-socialtags-var-tags": "Verknüpfte Artikel",
+	"socialtags": "Verknüpfte Artikel",
+	"bs-socialtags-special-heading": "Verknüpfte Artikel"
+}

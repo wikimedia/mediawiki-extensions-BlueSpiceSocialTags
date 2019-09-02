@@ -2,6 +2,10 @@
 
 namespace BlueSpice\Social\Tags\EntityListContext;
 
+use IContextSource;
+use Config;
+use Title;
+use User;
 use BlueSpice\Data\Filter\ListValue;
 use BlueSpice\Social\Entity;
 
@@ -12,36 +16,60 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 
 	/**
 	 *
-	 * @var \Title
+	 * @var Title
 	 */
 	protected $title = null;
 
 	/**
 	 *
-	 * @param \IContextSource $context
-	 * @param \Config $config
+	 * @param IContextSource $context
+	 * @param Config $config
+	 * @param User|null $user
+	 * @param Entity|null $entity
+	 * @param Title|null $title
 	 */
-	public function __construct( \IContextSource $context, \Config $config, \User $user = null, Entity $entity = null, \Title $title = null ) {
+	public function __construct( IContextSource $context, Config $config,
+		User $user = null, Entity $entity = null, Title $title = null ) {
 		parent::__construct( $context, $config, $user );
 		$this->title = $title;
 	}
 
+	/**
+	 *
+	 * @return Title
+	 */
 	public function getTitle() {
 		return $this->title ? $this->title : $this->context->getTitle();
 	}
 
+	/**
+	 *
+	 * @return int
+	 */
 	public function getLimit() {
 		return 3;
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	public function getSortProperty() {
 		return Entity::ATTR_TIMESTAMP_TOUCHED;
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
 	public function useEndlessScroll() {
 		return false;
 	}
 
+	/**
+	 *
+	 * @return \stdClass
+	 */
 	protected function getTagsFilter() {
 		return (object)[
 			ListValue::KEY_PROPERTY => 'tags',
@@ -54,10 +82,18 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 		];
 	}
 
+	/**
+	 *
+	 * @return array
+	 */
 	public function getFilters() {
-		return array_merge( parent::getFilters() , [ $this->getTagsFilter() ] );
+		return array_merge( parent::getFilters(), [ $this->getTagsFilter() ] );
 	}
 
+	/**
+	 *
+	 * @return array
+	 */
 	public function getLockedFilterNames() {
 		return array_merge( parent::getLockedFilterNames(), [ 'tags' ] );
 	}

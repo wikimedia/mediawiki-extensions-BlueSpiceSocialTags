@@ -14,18 +14,22 @@ namespace BlueSpice\Social\Tags\Special;
 
 use BlueSpice\Context;
 use BlueSpice\Services;
+use BlueSpice\SpecialPage;
 use BlueSpice\Renderer\Params;
 use BlueSpice\Social\Tags\EntityListContext\SpecialTags;
 
-class Tags extends \BlueSpice\SpecialPage {
+class Tags extends SpecialPage {
 
-	function __construct() {
+	public function __construct() {
 		parent::__construct( 'SocialTags', 'read', true );
 	}
 
-	function execute( $sParam ) {
-		//parent::execute($sParam);
-		$this->checkPermissions();
+	/**
+	 *
+	 * @param string $param
+	 */
+	public function execute( $param ) {
+		parent::execute( $param );
 
 		$this->getOutput()->setPageTitle(
 			\wfMessage( 'bs-socialtags-special-heading' )->plain()

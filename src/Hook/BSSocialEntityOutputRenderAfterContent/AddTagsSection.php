@@ -1,6 +1,8 @@
 <?php
 
 namespace BlueSpice\Social\Tags\Hook\BSSocialEntityOutputRenderAfterContent;
+
+use Html;
 use BlueSpice\Social\Hook\BSSocialEntityOutputRenderAfterContent;
 use BlueSpice\Social\Entity;
 
@@ -9,35 +11,39 @@ use BlueSpice\Social\Entity;
  */
 class AddTagsSection extends BSSocialEntityOutputRenderAfterContent {
 
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function doProcess() {
-		$oEntity = $this->oEntityOutput->getEntity();
+		$entity = $this->oEntityOutput->getEntity();
 
-		if( !$oEntity instanceof Entity ) {
+		if ( !$entity instanceof Entity ) {
 			return true;
 		}
-		if( !$oEntity->exists() || $oEntity->hasParent() ) {
+		if ( !$entity->exists() || $entity->hasParent() ) {
 			return true;
 		}
-		if( !$oEntity->getConfig()->get( 'IsTagable' ) ) {
-			return true;
-		}
-
-		$oStatus = $oEntity->userCan( 'tag' );
-		if( !$oStatus->isOK() ) {
+		if ( !$entity->getConfig()->get( 'IsTagable' ) ) {
 			return true;
 		}
 
-		$countTags = count( $oEntity->get( 'tags', [] ) );
+		$status = $entity->userCan( 'tag' );
+		if ( !$status->isOK() ) {
+			return true;
+		}
 
-		$sView = '';
-		$sView .= \XML::openElement("a", array(
+		$countTags = count( $entity->get( 'tags', [] ) );
+
+		$view = '';
+		$view .= Html::openElement( "a", [
 			'class' => 'bs-social-entityaftercontent-tags'
-		));
+		] );
 
 		// Only present on mobile view.
-		$sView .= \Html::element(
+		$view .= Html::element(
 			'span',
-			['class' => 'bs-social-count-short'],
+			[ 'class' => 'bs-social-count-short' ],
 			$countTags
 		);
 
@@ -46,15 +52,15 @@ class AddTagsSection extends BSSocialEntityOutputRenderAfterContent {
 			$countTags
 		);
 
-		$sView .= \Html::element(
+		$view .= Html::element(
 			'span',
-			['class' => 'bs-social-count-default'],
+			[ 'class' => 'bs-social-count-default' ],
 			$msg->parse()
 		);
 
-		$sView .= \XML::closeElement( "a" );
+		$view .= Html::closeElement( "a" );
 
-		$this->aViews[] = $sView;
+		$this->aViews[] = $view;
 		return true;
 	}
 }

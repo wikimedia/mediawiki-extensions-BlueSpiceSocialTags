@@ -27,7 +27,10 @@
  */
 namespace BlueSpice\Social\Tags\Api\Task;
 
+use FormatJson;
+use Title;
 use BlueSpice\Services;
+use BlueSpice\Api\Response\Standard;
 use BlueSpice\Social\Entity;
 
 /**
@@ -40,113 +43,107 @@ class Tags extends \BSApiTasksBase {
 	 * Methods that can be called by task param
 	 * @var array
 	 */
-	protected $aTasks = array(
+	protected $aTasks = [
 		'editTags',
-	);
+	];
 
+	/**
+	 *
+	 * @return array
+	 */
 	protected function getRequiredTaskPermissions() {
-		return array(
+		return [
 			'editTags' => [ 'edit' ],
-		);
+		];
 	}
 
-	public function task_editTags( $vTaskData, $aParams ) {
-		$oResult = $this->makeStandardReturn();
+	/**
+	 *
+	 * @param \stdClass $taskData
+	 * @param array $params
+	 * @return Standard
+	 */
+	public function task_editTags( $taskData, $params ) {
+		$result = $this->makeStandardReturn();
 		$this->checkPermissions();
 
-		if( empty( $vTaskData->id ) ) {
-			$vTaskData->id = 0;
+		if ( empty( $taskData->id ) ) {
+			$taskData->id = 0;
 		}
-		if( empty( $vTaskData->tags ) ) {
-			$vTaskData->tags = [];
+		if ( empty( $taskData->tags ) ) {
+			$taskData->tags = [];
 		}
-		$oEntity = Services::getInstance()->getBSEntityFactory()->newFromID(
-			$vTaskData->{Entity::ATTR_ID},
-			$vTaskData->{Entity::ATTR_TYPE}
+		$entity = Services::getInstance()->getBSEntityFactory()->newFromID(
+			$taskData->{Entity::ATTR_ID},
+			$taskData->{Entity::ATTR_TYPE}
 		);
-		if( !$oEntity instanceof Entity || !$oEntity->exists() ) {
-			return $oResult;
+		if ( !$entity instanceof Entity || !$entity->exists() ) {
+			return $result;
 		}
 
-		$oStatus = $oEntity->userCan(
+		$status = $entity->userCan(
 			'tag',
 			$this->getUser()
 		);
-		if( !$oStatus->isOK() ) {
-			$oResult->message = $oStatus->getHTML();
-			return $oResult;
+		if ( !$status->isOK() ) {
+			$result->message = $status->getHTML();
+			return $result;
 		}
 
-		$aData = $oEntity->getFullData();
-		foreach( $vTaskData->tags as $iKey => $sTag ) {
-			if( in_array( $sTag, $aData['tags'] ) ) {
+		$data = $entity->getFullData();
+		foreach ( $taskData->tags as $key => $tag ) {
+			if ( in_array( $tag, $data['tags'] ) ) {
 				continue;
 			}
-			if( !$oTitle = \Title::newFromText( $sTag ) ) {
-				unset( $vTaskData->tags[$iKey] );
+			$title = Title::newFromText( $tag );
+			if ( !$title ) {
+				unset( $taskData->tags[$key] );
 				continue;
 			}
-			if( !$oTitle->userCan( 'read', $this->getUser() ) ) {
-				unset( $vTaskData->tags[$iKey] );
+			if ( !$title->userCan( 'read', $this->getUser() ) ) {
+				unset( $taskData->tags[$key] );
 			}
 		}
 
-		foreach( $aData['tags'] as $iKey => $sTag ) {
-			if( in_array( $sTag, $vTaskData->tags ) ) {
+		foreach ( $data['tags'] as $key => $tag ) {
+			if ( in_array( $tag, $taskData->tags ) ) {
 				continue;
 			}
-			if( !$oTitle = \Title::newFromText( $sTag ) ) {
+			$title = Title::newFromText( $tag );
+			if ( !$title ) {
 				continue;
 			}
-			if( $oTitle->userCan( 'read', $this->getUser() ) ) {
+			if ( $title->userCan( 'read', $this->getUser() ) ) {
 				continue;
 			}
-			//user can not change tags, he is not allowed to read
-			$vTaskData->tags[] = $sTag;
+			// user can not change tags, he is not allowed to read
+			$taskData->tags[] = $tag;
 		}
 
-		if( empty($vTaskData->tags) ) {
-			$oEntity->tags = []; //force emptytags :(
+		if ( empty( $taskData->tags ) ) {
+			// force emptytags :(
+			$entity->tags = [];
 		}
-		$oEntity->set( "tags", $vTaskData->tags );
-		$oEntity->setUnsavedChanges();
-		$oStatus = $oEntity->save( $this->getUser() );
-		if( $oStatus->isGood() ) {
-			$oResult->success = true;
+		$entity->set( "tags", $taskData->tags );
+		$entity->setUnsavedChanges();
+		$status = $entity->save( $this->getUser() );
+		if ( $status->isGood() ) {
+			$result->success = true;
 		} else {
-			$oResult->message = $oStatus->getHTML();
+			$result->message = $status->getHTML();
 		}
-		$renderer = $oEntity->getRenderer( $this->getContext() );
-		$oResult->payload['entity'] = \FormatJson::encode( $oEntity );
-		$oResult->payload['entityconfig'][$oEntity->get( Entity::ATTR_TYPE )]
-			= \FormatJson::encode( $oEntity->getConfig() );
-		if( empty( $vTaskData->outputtype ) ) {
-			$oResult->payload['view'] = $renderer->render();
+		$renderer = $entity->getRenderer( $this->getContext() );
+		$result->payload['entity'] = FormatJson::encode( $entity );
+		$result->payload['entityconfig'][$entity->get( Entity::ATTR_TYPE )]
+			= FormatJson::encode( $entity->getConfig() );
+		if ( empty( $taskData->outputtype ) ) {
+			$result->payload['view'] = $renderer->render();
 		} else {
-			$oResult->payload['view'] = $renderer->render(
-				$vTaskData->outputtype
+			$result->payload['view'] = $renderer->render(
+				$taskData->outputtype
 			);
 		}
-		return $oResult;
+		return $result;
 	}
 
-	/**
-	 * Returns the bsic description for this module
-	 * @return type
-	 */
-	public function getDescription() {
-		return array(
-			'BSApiTasksBase: This should be implemented by subclass'
-		);
-	}
-
-	/**
-	 * Returns the basic example
-	 * @return type
-	 */
-	public function getExamples() {
-		return array(
-			'api.php?action='.$this->getModuleName().'&task='.$this->aTasks[0].'&taskData={someKey:"someValue",isFalse:true}',
-		);
-	}
 }

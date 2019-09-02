@@ -1,6 +1,9 @@
 <?php
 
 namespace BlueSpice\Social\Tags\Hook;
+
+use IContextSource;
+use Config;
 use BlueSpice\Social\Entity;
 
 abstract class BSSocialTagsBeforeSetTags extends \BlueSpice\Hook {
@@ -20,8 +23,8 @@ abstract class BSSocialTagsBeforeSetTags extends \BlueSpice\Hook {
 	/**
 	 *
 	 * @param Entity $entity
-	 * @param array $tags
-	 * @return boolean
+	 * @param array &$tags
+	 * @return bool
 	 */
 	public static function callback( $entity, &$tags ) {
 		$className = static::class;
@@ -36,10 +39,10 @@ abstract class BSSocialTagsBeforeSetTags extends \BlueSpice\Hook {
 
 	/**
 	 *
-	 * @param \IContextSource $context
-	 * @param \Config $config
+	 * @param IContextSource $context
+	 * @param Config $config
 	 * @param Entity $entity
-	 * @param array $tags
+	 * @param array &$tags
 	 */
 	public function __construct( $context, $config, $entity, &$tags ) {
 		parent::__construct( $context, $config );

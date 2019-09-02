@@ -1,33 +1,41 @@
 <?php
 
 namespace BlueSpice\Social\Tags\Hook\BSSocialEntityOutputRenderBeforeContent;
+
+use Html;
+use Title;
 use BlueSpice\Social\Hook\BSSocialEntityOutputRenderBeforeContent;
 
 class AddTagInfo extends BSSocialEntityOutputRenderBeforeContent {
 
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function doProcess() {
-		$aData = $this->oEntityOutput->getEntity()->getFullData();
+		$data = $this->oEntityOutput->getEntity()->getFullData();
 
-		if( empty( $aData['tags'] ) ) {
+		if ( empty( $data['tags'] ) ) {
 			return true;
 		}
 
-		$this->sOut .= \Html::openElement( 'span', [
+		$this->sOut .= Html::openElement( 'span', [
 			'class' => 'bs-social-beforecontent-tags',
-		]);
+		] );
 
-		foreach( $aData['tags'] as $sTag ) {
-			if( !$oTitle = \Title::newFromText( $sTag ) ) {
+		foreach ( $data['tags'] as $tag ) {
+			$title = Title::newFromText( $tag );
+			if ( !$title ) {
 				continue;
 			}
 
-			$this->sOut .= \Html::element(
+			$this->sOut .= Html::element(
 				'a',
-				[ 'href' => $oTitle->getLocalURL() ],
-				"#$sTag"
+				[ 'href' => $title->getLocalURL() ],
+				"#$tag"
 			);
 		}
-		$this->sOut .= \Html::closeElement( 'span' );
+		$this->sOut .= Html::closeElement( 'span' );
 		return true;
 	}
 }

@@ -1,6 +1,7 @@
 <?php
 
 namespace BlueSpice\Social\Tags\Hook\BSEntityConfigDefaults;
+
 use BlueSpice\Hook\BSEntityConfigDefaults;
 
 class TagPermission extends BSEntityConfigDefaults {

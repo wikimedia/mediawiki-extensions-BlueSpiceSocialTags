@@ -27,6 +27,7 @@
 namespace BlueSpice\Social\Tags\Hook\SkinTemplateOutputPageBeforeExec;
 
 use BlueSpice\Context;
+use BlueSpice\SkinData;
 use BlueSpice\Renderer\Params;
 use BlueSpice\Hook\SkinTemplateOutputPageBeforeExec;
 use BlueSpice\Social\Tags\EntityListContext\AfterContent;
@@ -34,10 +35,10 @@ use BlueSpice\Social\Tags\EntityListContext\AfterContent;
 class AddTimeline extends SkinTemplateOutputPageBeforeExec {
 
 	protected function skipProcessing() {
-		if( !$this->skin->getTitle()->exists() ) {
+		if ( !$this->skin->getTitle()->exists() ) {
 			return true;
 		}
-		if( !$this->getConfig()->get( 'SocialTagsTimelineAfterContentShow' ) ) {
+		if ( !$this->getConfig()->get( 'SocialTagsTimelineAfterContentShow' ) ) {
 			return true;
 		}
 		$namespace = $this->skin->getTitle()->getNamespace();
@@ -45,16 +46,16 @@ class AddTimeline extends SkinTemplateOutputPageBeforeExec {
 			'SocialTagsTimelineAfterContentNamespaceBlackList'
 		);
 
-		if( in_array( $namespace, $nsBlackList ) ) {
+		if ( in_array( $namespace, $nsBlackList ) ) {
 			return true;
 		}
 
-		if( $this->skin->getTitle()->isTalkPage() ) {
+		if ( $this->skin->getTitle()->isTalkPage() ) {
 			return true;
 		}
 
 		$action = $this->getContext()->getRequest()->getVal( 'action', 'view' );
-		if( $action != 'view' && $action != 'submit' ) {
+		if ( $action != 'view' && $action != 'submit' ) {
 			return true;
 		}
 
@@ -72,16 +73,13 @@ class AddTimeline extends SkinTemplateOutputPageBeforeExec {
 		);
 		$renderer = $this->getServices()->getBSRendererFactory()->get(
 			'entitylist',
-			new Params( [ 'context' => $context ])
+			new Params( [ 'context' => $context ] )
 		);
 		$item = [
 			'socialtags' => $renderer->render(),
 		];
 
-		$this->mergeSkinDataArray(
-			\BlueSpice\SkinData::AFTER_CONTENT,
-			$item
-		);
+		$this->mergeSkinDataArray( SkinData::AFTER_CONTENT, $item );
 		return true;
 	}
 

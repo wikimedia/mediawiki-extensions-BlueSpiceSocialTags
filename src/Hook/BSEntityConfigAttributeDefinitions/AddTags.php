@@ -1,6 +1,7 @@
 <?php
 
 namespace BlueSpice\Social\Tags\Hook\BSEntityConfigAttributeDefinitions;
+
 use BlueSpice\Hook\BSEntityConfigAttributeDefinitions;
 use BlueSpice\Social\EntityConfig;
 use BlueSpice\Data\Entity\Schema;
@@ -12,11 +13,11 @@ use BlueSpice\Data\FieldType;
 class AddTags extends BSEntityConfigAttributeDefinitions {
 
 	protected function skipProcessing() {
-		if( !$this->entityConfig instanceof EntityConfig ) {
+		if ( !$this->entityConfig instanceof EntityConfig ) {
 			return true;
 		}
-		//TODO ->get( 'CanBeChild' ) as child entities can not be tagged
-		if( !$this->entityConfig->get( 'IsTagable' ) ) {
+		// TODO ->get( 'CanBeChild' ) as child entities can not be tagged
+		if ( !$this->entityConfig->get( 'IsTagable' ) ) {
 			return true;
 		}
 		return parent::skipProcessing();

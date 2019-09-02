@@ -13,18 +13,26 @@ class SpecialTags extends \BlueSpice\Social\EntityListContext {
 	 */
 	public function getAllowedTypes() {
 		$entityTypes = [];
-		foreach( $this->getEntityConfigs() as $type => $config ) {
-			if( $config->get( 'IsTagable' ) || $config instanceof Action ) {
+		foreach ( $this->getEntityConfigs() as $type => $config ) {
+			if ( $config->get( 'IsTagable' ) || $config instanceof Action ) {
 				$entityTypes[] = $type;
 			}
 		}
 		return $entityTypes;
 	}
 
+	/**
+	 *
+	 * @return int
+	 */
 	public function getLimit() {
 		return 20;
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function getSortProperty() {
 		return Entity::ATTR_TIMESTAMP_CREATED;
 	}

@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hamilton Abreu",
+			"Mansil alfalb"
+		]
+	},
+	"bs-socialtags-tagstext": "{{plural:$1|Página associada|Páginas associadas}} ($1)",
+	"socialtags": "Páginas associadas"
+}

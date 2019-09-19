@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Elroy"
+		]
+	},
+	"bs-socialtags-tagstext": "{{plural:$1|Pagina|Pagina's}}  gekoppeld ($1)",
+	"socialtags": "Gekoppelde pagina's"
+}

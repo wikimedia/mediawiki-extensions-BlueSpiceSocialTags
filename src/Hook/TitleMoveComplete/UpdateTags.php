@@ -61,12 +61,11 @@ class UpdateTags extends \BlueSpice\Hook\TitleMoveComplete {
 
 	/**
 	 *
-	 * @param SpecialTags $context
 	 * @return Store
 	 * @throws MWException
 	 */
-	protected function getStore( SpecialTags $context ) {
-		return new Store( $context );
+	protected function getStore() {
+		return new Store();
 	}
 
 	/**

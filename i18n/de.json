@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Patric Wirth <wirth@hallowelt.com>"
+			"Patric Wirth",
+			"Mglaser"
 		]
 	},
 	"bs-socialtags-desc": "Fügt Tagging-Funktionalität für BlueSpiceSocial-Entitäten hinzu",

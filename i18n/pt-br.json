@@ -10,5 +10,6 @@
 	"bs-socialtags-special-heading": "Páginas vinculadas",
 	"apihelp-bs-socialtags-tasks-summary": "Fornece tarefas para editar as páginas vinculadas das entidades",
 	"action-social-tagging": "editar páginas vinculadas",
-	"right-social-tagging": "Editar páginas vinculadas"
+	"right-social-tagging": "Editar páginas vinculadas",
+	"bs-socialtags-tagstext": "{{plural:$1|Página associada|Páginas associadas}} ($1)"
 }

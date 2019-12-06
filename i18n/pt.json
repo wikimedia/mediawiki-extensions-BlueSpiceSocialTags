@@ -6,5 +6,9 @@
 		]
 	},
 	"bs-socialtags-tagstext": "{{plural:$1|Página associada|Páginas associadas}} ($1)",
-	"socialtags": "Páginas associadas"
+	"socialtags": "Páginas associadas",
+	"bs-socialtags-var-tags": "Páginas afluentes",
+	"bs-socialtags-special-heading": "Páginas afluentes",
+	"action-social-tagging": "editar páginas afluentes",
+	"right-social-tagging": "Editar páginas afluentes"
 }

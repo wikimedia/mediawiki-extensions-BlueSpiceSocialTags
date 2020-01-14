@@ -13,10 +13,10 @@
 namespace BlueSpice\Social\Tags\Special;
 
 use BlueSpice\Context;
-use BlueSpice\Services;
-use BlueSpice\SpecialPage;
 use BlueSpice\Renderer\Params;
+use BlueSpice\Services;
 use BlueSpice\Social\Tags\EntityListContext\SpecialTags;
+use BlueSpice\SpecialPage;
 
 class Tags extends SpecialPage {
 

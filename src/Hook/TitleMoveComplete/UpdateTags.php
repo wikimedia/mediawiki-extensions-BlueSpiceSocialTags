@@ -1,16 +1,16 @@
 <?php
 namespace BlueSpice\Social\Tags\Hook\TitleMoveComplete;
 
-use MWException;
-use JobQueueGroup;
 use BlueSpice\Context;
-use BlueSpice\Services;
-use BlueSpice\Social\Entity;
-use BlueSpice\Data\ReaderParams;
 use BlueSpice\Data\Filter\ListValue;
-use BlueSpice\Social\Tags\Job\UpdateTags as Job;
+use BlueSpice\Data\ReaderParams;
+use BlueSpice\Services;
 use BlueSpice\Social\Data\Entity\Store;
+use BlueSpice\Social\Entity;
 use BlueSpice\Social\Tags\EntityListContext\SpecialTags;
+use BlueSpice\Social\Tags\Job\UpdateTags as Job;
+use JobQueueGroup;
+use MWException;
 
 class UpdateTags extends \BlueSpice\Hook\TitleMoveComplete {
 

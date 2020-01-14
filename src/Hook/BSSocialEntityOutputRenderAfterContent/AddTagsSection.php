@@ -2,9 +2,9 @@
 
 namespace BlueSpice\Social\Tags\Hook\BSSocialEntityOutputRenderAfterContent;
 
-use Html;
-use BlueSpice\Social\Hook\BSSocialEntityOutputRenderAfterContent;
 use BlueSpice\Social\Entity;
+use BlueSpice\Social\Hook\BSSocialEntityOutputRenderAfterContent;
+use Html;
 
 /**
  * Adds a tag count to every non comment entity view

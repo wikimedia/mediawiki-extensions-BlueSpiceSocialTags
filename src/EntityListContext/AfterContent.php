@@ -2,12 +2,12 @@
 
 namespace BlueSpice\Social\Tags\EntityListContext;
 
-use IContextSource;
-use Config;
-use Title;
-use User;
 use BlueSpice\Data\Filter\ListValue;
 use BlueSpice\Social\Entity;
+use Config;
+use IContextSource;
+use Title;
+use User;
 
 class AfterContent extends \BlueSpice\Social\EntityListContext {
 	const CONFIG_NAME_OUTPUT_TYPE = 'EntityListAfterContentOutputType';

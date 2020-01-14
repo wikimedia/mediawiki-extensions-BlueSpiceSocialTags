@@ -2,12 +2,12 @@
 
 namespace BlueSpice\Social\Tags\Hook\BSSocialEntityListInitialized;
 
-use BlueSpice\Social\Hook\BSSocialEntityListInitialized;
 use BlueSpice\Data\FieldType;
-use BlueSpice\Data\Filter\Numeric;
 use BlueSpice\Data\Filter\ListValue;
-use BlueSpice\Social\Topics\Entity\Topic;
+use BlueSpice\Data\Filter\Numeric;
+use BlueSpice\Social\Hook\BSSocialEntityListInitialized;
 use BlueSpice\Social\Renderer\EntityList;
+use BlueSpice\Social\Topics\Entity\Topic;
 use BlueSpice\Social\Topics\EntityListContext\DiscussionPage;
 
 class ReplaceDiscussionPageListFilter extends BSSocialEntityListInitialized {

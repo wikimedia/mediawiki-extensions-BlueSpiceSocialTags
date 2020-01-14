@@ -27,9 +27,9 @@
 namespace BlueSpice\Social\Tags\Hook\SkinTemplateOutputPageBeforeExec;
 
 use BlueSpice\Context;
-use BlueSpice\SkinData;
-use BlueSpice\Renderer\Params;
 use BlueSpice\Hook\SkinTemplateOutputPageBeforeExec;
+use BlueSpice\Renderer\Params;
+use BlueSpice\SkinData;
 use BlueSpice\Social\Tags\EntityListContext\AfterContent;
 
 class AddTimeline extends SkinTemplateOutputPageBeforeExec {

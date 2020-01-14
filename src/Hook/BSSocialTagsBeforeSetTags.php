@@ -2,9 +2,9 @@
 
 namespace BlueSpice\Social\Tags\Hook;
 
-use IContextSource;
-use Config;
 use BlueSpice\Social\Entity;
+use Config;
+use IContextSource;
 
 abstract class BSSocialTagsBeforeSetTags extends \BlueSpice\Hook {
 

@@ -2,9 +2,9 @@
 
 namespace BlueSpice\Social\Tags\Hook\BSSocialEntityOutputRenderBeforeContent;
 
+use BlueSpice\Social\Hook\BSSocialEntityOutputRenderBeforeContent;
 use Html;
 use Title;
-use BlueSpice\Social\Hook\BSSocialEntityOutputRenderBeforeContent;
 
 class AddTagInfo extends BSSocialEntityOutputRenderBeforeContent {
 

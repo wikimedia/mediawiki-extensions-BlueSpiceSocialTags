@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Mjälten"
 		]
 	},
 	"bs-socialtags-tagstext": "{{plural:$1|Länkad sida|Länkade sidor}} ($1)",
-	"socialtags": "Länkade sidor"
+	"socialtags": "Länkade sidor",
+	"bs-socialtags-var-tags": "Länkade sidor",
+	"bs-socialtags-special-heading": "Länkade sidor"
 }

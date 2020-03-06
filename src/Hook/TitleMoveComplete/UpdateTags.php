@@ -23,7 +23,7 @@ class UpdateTags extends \BlueSpice\Hook\TitleMoveComplete {
 			$this->getContext(),
 			$this->getConfig()
 		);
-		$serviceUser = Services::getInstance()->getBSUtilityFactory()
+		$serviceUser = Services::getInstance()->getService( 'BSUtilityFactory' )
 			->getMaintenanceUser()->getUser();
 
 		$listContext = new SpecialTags(
@@ -48,7 +48,7 @@ class UpdateTags extends \BlueSpice\Hook\TitleMoveComplete {
 		] );
 		$res = $this->getStore()->getReader( $listContext )->read( $params );
 		foreach ( $res->getRecords() as $record ) {
-			$entity = Services::getInstance()->getBSEntityFactory()
+			$entity = Services::getInstance()->getService( 'BSEntityFactory' )
 				->newFromObject( $record->getData() );
 			if ( !$entity instanceof Entity || !$entity->exists() ) {
 				continue;

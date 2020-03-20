@@ -91,6 +91,7 @@ class Tags extends \BSApiTasksBase {
 		}
 
 		$data = $entity->getFullData();
+		$pm = \MediaWiki\MediaWikiServices::getInstance()->getPermissionManager();
 		foreach ( $taskData->tags as $key => $tag ) {
 			if ( in_array( $tag, $data['tags'] ) ) {
 				continue;
@@ -100,7 +101,7 @@ class Tags extends \BSApiTasksBase {
 				unset( $taskData->tags[$key] );
 				continue;
 			}
-			if ( !$title->userCan( 'read', $this->getUser() ) ) {
+			if ( !$pm->userCan( 'read', $this->getUser(), $title ) ) {
 				unset( $taskData->tags[$key] );
 			}
 		}
@@ -113,7 +114,7 @@ class Tags extends \BSApiTasksBase {
 			if ( !$title ) {
 				continue;
 			}
-			if ( $title->userCan( 'read', $this->getUser() ) ) {
+			if ( $pm->userCan( 'read', $this->getUser(), $title ) ) {
 				continue;
 			}
 			// user can not change tags, he is not allowed to read

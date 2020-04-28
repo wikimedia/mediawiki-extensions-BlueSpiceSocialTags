@@ -73,7 +73,7 @@ class Tags extends \BSApiTasksBase {
 		if ( empty( $taskData->tags ) ) {
 			$taskData->tags = [];
 		}
-		$entity = Services::getInstance()->getBSEntityFactory()->newFromID(
+		$entity = Services::getInstance()->getService( 'BSEntityFactory' )->newFromID(
 			$taskData->{Entity::ATTR_ID},
 			$taskData->{Entity::ATTR_TYPE}
 		);

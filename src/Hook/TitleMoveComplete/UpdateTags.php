@@ -4,12 +4,12 @@ namespace BlueSpice\Social\Tags\Hook\TitleMoveComplete;
 use BlueSpice\Context;
 use BlueSpice\Data\Filter\ListValue;
 use BlueSpice\Data\ReaderParams;
-use BlueSpice\Services;
 use BlueSpice\Social\Data\Entity\Store;
 use BlueSpice\Social\Entity;
 use BlueSpice\Social\Tags\EntityListContext\SpecialTags;
 use BlueSpice\Social\Tags\Job\UpdateTags as Job;
 use JobQueueGroup;
+use MediaWiki\MediaWikiServices;
 use MWException;
 
 class UpdateTags extends \BlueSpice\Hook\TitleMoveComplete {
@@ -23,7 +23,7 @@ class UpdateTags extends \BlueSpice\Hook\TitleMoveComplete {
 			$this->getContext(),
 			$this->getConfig()
 		);
-		$serviceUser = Services::getInstance()->getService( 'BSUtilityFactory' )
+		$serviceUser = MediaWikiServices::getInstance()->getService( 'BSUtilityFactory' )
 			->getMaintenanceUser()->getUser();
 
 		$listContext = new SpecialTags(
@@ -48,7 +48,7 @@ class UpdateTags extends \BlueSpice\Hook\TitleMoveComplete {
 		] );
 		$res = $this->getStore()->getReader( $listContext )->read( $params );
 		foreach ( $res->getRecords() as $record ) {
-			$entity = Services::getInstance()->getService( 'BSEntityFactory' )
+			$entity = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )
 				->newFromObject( $record->getData() );
 			if ( !$entity instanceof Entity || !$entity->exists() ) {
 				continue;

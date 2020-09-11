@@ -14,9 +14,9 @@ namespace BlueSpice\Social\Tags\Special;
 
 use BlueSpice\Context;
 use BlueSpice\Renderer\Params;
-use BlueSpice\Services;
 use BlueSpice\Social\Tags\EntityListContext\SpecialTags;
 use BlueSpice\SpecialPage;
+use MediaWiki\MediaWikiServices;
 
 class Tags extends SpecialPage {
 
@@ -43,7 +43,7 @@ class Tags extends SpecialPage {
 			$this->getConfig(),
 			$this->getContext()->getUser()
 		);
-		$renderer = Services::getInstance()->getService( 'BSRendererFactory' )->get(
+		$renderer = MediaWikiServices::getInstance()->getService( 'BSRendererFactory' )->get(
 			'entitylist',
 			new Params( [ 'context' => $context ] )
 		);

@@ -94,11 +94,13 @@
 				"ext.bluespice.social.entity"
 			],
 			"scripts": [
+				"EntityActionMenu/Tags.js",
 				"bluespice.social.tags.js",
 				"EntityListMenu/Filter/Tags.js"
 			],
 			"messages": [
-				"bs-socialtags-var-tags"
+				"bs-socialtags-var-tags",
+				"bs-socialtags-tagstext"
 			]
 		}
 	},
@@ -114,13 +116,13 @@
 			"\\BlueSpice\\Social\\Tags\\Hook\\BSEntityConfigDefaults\\IsTagable::callback",
 			"\\BlueSpice\\Social\\Tags\\Hook\\BSEntityConfigDefaults\\TagPermission::callback"
 		],
-		"BSSocialEntityOutputRenderAfterContent": "\\BlueSpice\\Social\\Tags\\Hook\\BSSocialEntityOutputRenderAfterContent\\AddTagsSection::callback",
 		"BSSocialEntityOutputRenderBeforeContent": "\\BlueSpice\\Social\\Tags\\Hook\\BSSocialEntityOutputRenderBeforeContent\\AddTagInfo::callback",
 		"BSEntityConfigAttributeDefinitions": "\\BlueSpice\\Social\\Tags\\Hook\\BSEntityConfigAttributeDefinitions\\AddTags::callback",
 		"ChameleonSkinTemplateOutputPageBeforeExec": "\\BlueSpice\\Social\\Tags\\Hook\\ChameleonSkinTemplateOutputPageBeforeExec\\AddTimeline::callback",
 		"BSSocialEntityListInitialized": "\\BlueSpice\\Social\\Tags\\Hook\\BSSocialEntityListInitialized\\ReplaceDiscussionPageListFilter::callback",
 		"TitleMoveComplete": "\\BlueSpice\\Social\\Tags\\Hook\\TitleMoveComplete\\UpdateTags::callback",
-		"BSFoundationRendererMakeTagAttribs": "\\BlueSpice\\Social\\Tags\\Hook\\BSFoundationRendererMakeTagAttribs\\AddForeignTopicClassToEntityRenderer::callback"
+		"BSFoundationRendererMakeTagAttribs": "\\BlueSpice\\Social\\Tags\\Hook\\BSFoundationRendererMakeTagAttribs\\AddForeignTopicClassToEntityRenderer::callback",
+		"BSSocialEntityGetActions": "\\BlueSpice\\Social\\Tags\\Hook\\BSSocialEntityGetActions\\AddTags::callback"
 	},
 	"manifest_version": 2
 }

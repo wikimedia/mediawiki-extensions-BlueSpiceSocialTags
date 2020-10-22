@@ -35,9 +35,6 @@
 						"reviewer"
 					]
 				}
-			},
-			"LessVarsRegistry": {
-				"bs-social-background-color-foreign": "#D6DCE7"
 			}
 		}
 	},
@@ -87,7 +84,7 @@
 			"styles": [
 				"bluespice.social.tags.less"
 			],
-			"class": "\\BlueSpice\\ResourceModule\\LessVars"
+			"class": "\\MWStake\\MediaWiki\\Component\\CommonUserInterface\\ResourceLoader\\LessVars"
 		},
 		"ext.bluespice.social.tags": {
 			"dependencies": [

@@ -5,6 +5,7 @@ namespace BlueSpice\Social\Tags\Hook\BSEntitySetValuesByObject;
 use BlueSpice\Hook\BSEntitySetValuesByObject;
 use BlueSpice\Social\Entity;
 use BlueSpice\Social\Entity\Action;
+use MediaWiki\MediaWikiServices;
 
 class SetTags extends BSEntitySetValuesByObject {
 
@@ -37,7 +38,7 @@ class SetTags extends BSEntitySetValuesByObject {
 				[ $this->entity->getRelatedTitle()->getFullText() ]
 			) ) );
 		}
-		\Hooks::run( 'BSSocialTagsBeforeSetTags', [
+		MediaWikiServices::getInstance()->getHookContainer()->run( 'BSSocialTagsBeforeSetTags', [
 			$this->entity,
 			&$this->data->tags
 		] );

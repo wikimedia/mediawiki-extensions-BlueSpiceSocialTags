@@ -13,15 +13,18 @@
 namespace BlueSpice\Social\Tags\Special;
 
 use BlueSpice\Context;
-use BlueSpice\Services;
-use BlueSpice\SpecialPage;
+use BlueSpice\Data\FieldType;
+use BlueSpice\Data\Filter\ListValue;
 use BlueSpice\Renderer\Params;
+use BlueSpice\Social\Renderer\EntityList;
 use BlueSpice\Social\Tags\EntityListContext\SpecialTags;
+use BlueSpice\SpecialPage;
+use Title;
 
 class Tags extends SpecialPage {
 
 	public function __construct() {
-		parent::__construct( 'SocialTags', 'read', true );
+		parent::__construct( 'SocialTags', 'read', false );
 	}
 
 	/**
@@ -32,8 +35,21 @@ class Tags extends SpecialPage {
 		parent::execute( $param );
 
 		$this->getOutput()->setPageTitle(
-			\wfMessage( 'bs-socialtags-special-heading' )->plain()
+			$this->msg( 'bs-socialtags-special-heading' )->plain()
 		);
+		if ( empty( $param ) ) {
+			$this->getOutput()->addHTML(
+				$this->msg( 'bs-socialtags-special-invalid-title' )->params( $param )->parse()
+			);
+			return;
+		}
+		$title = Title::newFromText( $param );
+		if ( !$title ) {
+			$this->getOutput()->addHTML(
+				$this->msg( 'bs-socialtags-special-invalid-title' )->params( $param )->parse()
+			);
+			return;
+		}
 
 		$context = new SpecialTags(
 			new Context(
@@ -43,9 +59,23 @@ class Tags extends SpecialPage {
 			$this->getConfig(),
 			$this->getContext()->getUser()
 		);
-		$renderer = Services::getInstance()->getService( 'BSRendererFactory' )->get(
+		$filters = $context->getFilters();
+		$filters[] = (object)[
+			ListValue::KEY_TYPE => FieldType::LISTVALUE,
+			ListValue::KEY_COMPARISON => ListValue::COMPARISON_CONTAINS,
+			ListValue::KEY_PROPERTY => 'tags',
+			ListValue::KEY_VALUE => [ $title->getFullText() ]
+		];
+		$renderer = MediaWikiServices::getInstance()->getService( 'BSRendererFactory' )->get(
 			'entitylist',
-			new Params( [ 'context' => $context ] )
+			new Params( [
+				EntityList::PARAM_CONTEXT => $context,
+				EntityList::PARAM_LOCKED_FILTER_NAMES => $context->getLockedFilterNames() + [
+					'tags'
+				],
+				EntityList::PARAM_FILTER => $filters,
+				EntityList::PARAM_SHOW_ENTITY_SPAWNER => false,
+			] )
 		);
 
 		$this->getOutput()->addHTML( $renderer->render() );

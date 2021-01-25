@@ -11,5 +11,6 @@
 	"bs-socialtags-special-heading": "Special page header for [[Special:SocialTags]] special page.\n{{Identical|Linked pages}}",
 	"apihelp-bs-socialtags-tasks-summary": "{{doc-apihelp-summary|bs-socialtags-tasks}}",
 	"action-social-tagging": "{{doc-action|social-tagging}}",
-	"right-social-tagging": "{{doc-right|social-tagging}}"
+	"right-social-tagging": "{{doc-right|social-tagging}}",
+	"bs-socialtags-special-invalid-title": "Error message when given parameter is not a valid title.\n* $1 - Given parameter"
 }

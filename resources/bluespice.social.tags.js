@@ -15,6 +15,9 @@ $( document ).on( 'BSSocialEntityEditorAdvancedFieldset', function( event, Entit
 	tags.select2 = tags.$element.find( 'select' ).select2({
 		multiple: true,
 		allowClear: true,
+		escapeMarkup: function( element ) {
+			return element;
+		},
 		ajax: {
 			url: mw.util.wikiScript( 'api' ),
 			dataType: 'json',
@@ -62,3 +65,7 @@ $( document ).on( 'BSSocialEntityEditorAdvancedFieldset', function( event, Entit
 $( document ).bind( 'BSSocialEntityActionMenuInit', function( event, EntityActionMenu ) {
 	EntityActionMenu.classes.tags = bs.social.EntityActionMenuTags.Tags;
 });
+
+$( document ).on( "click", '.bs-social-entity-aftercontent-tageditor li.select2-selection__choice', function( e ) {
+	window.open( mw.util.getUrl( $( e.target ).attr( 'title' ) ), '_blank' );
+} );

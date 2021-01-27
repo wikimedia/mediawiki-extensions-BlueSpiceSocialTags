@@ -1,9 +1,10 @@
 <?php
-namespace BlueSpice\Social\Tags\Hook\TitleMoveComplete;
+namespace BlueSpice\Social\Tags\Hook\PageMoveComplete;
 
 use BlueSpice\Context;
 use BlueSpice\Data\Filter\ListValue;
 use BlueSpice\Data\ReaderParams;
+use BlueSpice\Hook\PageMoveComplete;
 use BlueSpice\Social\Data\Entity\Store;
 use BlueSpice\Social\Entity;
 use BlueSpice\Social\Tags\EntityListContext\SpecialTags;
@@ -11,8 +12,9 @@ use BlueSpice\Social\Tags\Job\UpdateTags as Job;
 use JobQueueGroup;
 use MediaWiki\MediaWikiServices;
 use MWException;
+use Title;
 
-class UpdateTags extends \BlueSpice\Hook\TitleMoveComplete {
+class UpdateTags extends PageMoveComplete {
 
 	/**
 	 *
@@ -35,7 +37,7 @@ class UpdateTags extends \BlueSpice\Hook\TitleMoveComplete {
 		$filters = $listContext->getFilters();
 		$filters[] = (object)[
 			ListValue::KEY_PROPERTY => 'tags',
-			ListValue::KEY_VALUE => [ $this->title->getFullText() ],
+			ListValue::KEY_VALUE => [ Title::newFromLinkTarget( $this->old )->getFullText() ],
 			ListValue::KEY_COMPARISON => ListValue::COMPARISON_CONTAINS,
 			ListValue::KEY_TYPE => 'list'
 		];
@@ -75,9 +77,9 @@ class UpdateTags extends \BlueSpice\Hook\TitleMoveComplete {
 	protected function addJob( Entity $entity ) {
 		$tags = array_diff(
 			$entity->get( 'tags', [] ),
-			[ $this->title->getFullText() ]
+			[ Title::newFromLinkTarget( $this->old )->getFullText() ]
 		);
-		$tags[] = $this->newTitle->getFullText();
+		$tags[] = Title::newFromLinkTarget( $this->new )->getFullText();
 		$tags = array_values( array_unique( $tags ) );
 
 		$job = new Job(

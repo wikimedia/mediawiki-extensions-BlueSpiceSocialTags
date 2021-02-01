@@ -50,6 +50,9 @@ bs.social.EntityListMenuFilterTags.prototype.makeQuickFilterButtons = function()
 	);
 	this.$removeAllButton.on( 'click',function() {
 		var $select2 = me.$element.find( 'select' );
+		if( $select2.attr( 'disabled' ) === 'disabled' ) {
+			return;
+		}
 		$select2.val( null );
 		$select2.trigger('change');
 	});

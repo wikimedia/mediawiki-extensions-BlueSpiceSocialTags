@@ -11,5 +11,6 @@
 	"bs-socialtags-special-heading": "Pàggene collegate",
 	"apihelp-bs-socialtags-tasks-summary": "Dèje combite pu cangiamende de le state de le pàggene collegate de l'endità",
 	"action-social-tagging": "cange le pàggene collegate",
-	"right-social-tagging": "Cange le pàggene collegate"
+	"right-social-tagging": "Cange le pàggene collegate",
+	"bs-socialtags-special-invalid-title": "'U parametre \"$1\" non g0è 'na pàgena valide"
 }

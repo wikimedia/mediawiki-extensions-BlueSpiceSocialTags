@@ -19,6 +19,7 @@ use BlueSpice\Renderer\Params;
 use BlueSpice\Social\Renderer\EntityList;
 use BlueSpice\Social\Tags\EntityListContext\SpecialTags;
 use BlueSpice\SpecialPage;
+use MediaWiki\MediaWikiServices;
 use Title;
 
 class Tags extends SpecialPage {

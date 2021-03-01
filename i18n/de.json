@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Mglaser",
-			"Patric Wirth"
+			"Patric Wirth",
+			"Umherirrender"
 		]
 	},
 	"bs-socialtags-desc": "Fügt Tagging-Funktionalität für BlueSpiceSocial-Entitäten hinzu",
@@ -13,5 +14,5 @@
 	"apihelp-bs-socialtags-tasks-summary": "Stellt Aufgaben für die Bearbeitung verlinkter Seiten von Entities bereit",
 	"action-social-tagging": "verlinkte Seiten zu bearbeiten",
 	"right-social-tagging": "Verlinkte Seiten bearbeiten",
-	"bs-socialtags-special-invalid-title": "Der angegebene Parameter \"$1\" entspricht keiner gültigen Seite"
+	"bs-socialtags-special-invalid-title": "Der angegebene Parameter „$1“ entspricht keiner gültigen Seite"
 }

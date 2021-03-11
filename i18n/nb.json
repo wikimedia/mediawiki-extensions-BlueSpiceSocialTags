@@ -11,5 +11,6 @@
 	"bs-socialtags-special-heading": "Lenkede sider",
 	"apihelp-bs-socialtags-tasks-summary": "Tilbyr oppgaver for å redigere entiteters lenkede sider",
 	"action-social-tagging": "redigere lenkede sider",
-	"right-social-tagging": "Redigere lenkede sider"
+	"right-social-tagging": "Redigere lenkede sider",
+	"bs-socialtags-special-invalid-title": "Den gitte parameteren «$1» er ikke en gyldig side"
 }

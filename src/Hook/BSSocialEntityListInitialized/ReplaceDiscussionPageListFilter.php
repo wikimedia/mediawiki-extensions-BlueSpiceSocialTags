@@ -33,7 +33,7 @@ class ReplaceDiscussionPageListFilter extends BSSocialEntityListInitialized {
 	protected function doProcess() {
 		$this->args[EntityList::PARAM_FILTER] = array_filter(
 			$this->args[EntityList::PARAM_FILTER],
-			function ( $e ) {
+			static function ( $e ) {
 				return $e->{Numeric::KEY_PROPERTY} !== Topic::ATTR_DISCUSSION_TITLE_ID;
 			}
 		);

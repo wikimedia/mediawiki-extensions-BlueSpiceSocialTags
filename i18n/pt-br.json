@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Eduardo Addad de Oliveira"
+			"Eduardo Addad de Oliveira",
+			"Eduardoaddad"
 		]
 	},
 	"bs-socialtags-desc": "Adiciona funcionalidade de marcação a entidades sociais",
@@ -11,5 +12,6 @@
 	"bs-socialtags-special-heading": "Páginas vinculadas",
 	"apihelp-bs-socialtags-tasks-summary": "Fornece tarefas para editar as páginas vinculadas das entidades",
 	"action-social-tagging": "editar páginas vinculadas",
-	"right-social-tagging": "Editar páginas vinculadas"
+	"right-social-tagging": "Editar páginas vinculadas",
+	"bs-socialtags-special-invalid-title": "O parâmetro \"$1\" dado não é uma página válida"
 }

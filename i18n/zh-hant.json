@@ -11,5 +11,6 @@
 	"bs-socialtags-special-heading": "已連結頁面",
 	"apihelp-bs-socialtags-tasks-summary": "提供用於編輯單元連結頁面的任務",
 	"action-social-tagging": "編輯已連結頁面",
-	"right-social-tagging": "編輯已連結頁面"
+	"right-social-tagging": "編輯已連結頁面",
+	"bs-socialtags-special-invalid-title": "給予的參數「$1」不是有效頁面"
 }

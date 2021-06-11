@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Gomoko",
 			"Verdy p"
 		]
 	},
@@ -11,5 +12,6 @@
 	"bs-socialtags-special-heading": "Pages liées",
 	"apihelp-bs-socialtags-tasks-summary": "Fournit des tâches pout modifier les pages liées des entités",
 	"action-social-tagging": "modifier les pages liées",
-	"right-social-tagging": "Modifier les pages liées"
+	"right-social-tagging": "Modifier les pages liées",
+	"bs-socialtags-special-invalid-title": "Le paramètre « $1 » n’est pas une page valide"
 }

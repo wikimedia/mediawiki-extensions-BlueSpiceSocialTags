@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"DDPAT",
 			"Piramidion"
 		]
 	},
@@ -11,5 +12,6 @@
 	"bs-socialtags-special-heading": "Пов'язані сторінки",
 	"apihelp-bs-socialtags-tasks-summary": "Надає завдання для редагування пов'язаних сторінок сутностей",
 	"action-social-tagging": "редагування пов'язаних сторінок",
-	"right-social-tagging": "Редагування пов'язаних сторінок"
+	"right-social-tagging": "Редагування пов'язаних сторінок",
+	"bs-socialtags-special-invalid-title": "Вказаний параметр \"$1\" не є дійсною сторінкою"
 }

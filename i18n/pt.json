@@ -12,5 +12,6 @@
 	"bs-socialtags-special-heading": "Páginas afluentes",
 	"apihelp-bs-socialtags-tasks-summary": "Fornece tarefas para editar as páginas afluentes das entidades",
 	"action-social-tagging": "editar páginas afluentes",
-	"right-social-tagging": "Editar páginas afluentes"
+	"right-social-tagging": "Editar páginas afluentes",
+	"bs-socialtags-special-invalid-title": "O parâmetro dado \"$1\" não é uma página válida"
 }

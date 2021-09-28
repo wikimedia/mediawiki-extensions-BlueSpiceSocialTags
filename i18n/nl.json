@@ -2,11 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Elroy",
-			"Mainframe98"
+			"Mainframe98",
+			"Romaine"
 		]
 	},
 	"bs-socialtags-tagstext": "{{plural:$1|Pagina|Pagina's}}  gekoppeld ($1)",
 	"socialtags": "Gekoppelde pagina's",
 	"action-social-tagging": "gekoppelde pagina's te bewerken",
-	"right-social-tagging": "Gekoppelde pagina's bewerken"
+	"right-social-tagging": "Gekoppelde pagina's bewerken",
+	"bs-socialtags-var-tags": "Gekoppelde pagina's",
+	"bs-socialtags-special-heading": "Gekoppelde pagina's"
 }

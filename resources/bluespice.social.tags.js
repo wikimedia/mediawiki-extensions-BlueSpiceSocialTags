@@ -60,6 +60,9 @@ $( document ).on( 'BSSocialEntityEditorAdvancedFieldset', function( event, Entit
 	advancedfieldset.addItems( [
 		EntityEditor.tags
 	]);
+	tags.select2.on( 'change', function() {
+		EntityEditor.entity.setDirty( true );
+	} );
 });
 
 $( document ).bind( 'BSSocialEntityActionMenuInit', function( event, EntityActionMenu ) {

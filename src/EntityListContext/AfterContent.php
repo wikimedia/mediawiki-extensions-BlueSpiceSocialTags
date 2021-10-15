@@ -10,9 +10,9 @@ use Title;
 use User;
 
 class AfterContent extends \BlueSpice\Social\EntityListContext {
-	const CONFIG_NAME_OUTPUT_TYPE = 'EntityListAfterContentOutputType';
-	const CONFIG_NAME_TYPE_ALLOWED = 'EntityListAfterContentTypeAllowed';
-	const CONFIG_NAME_TYPE_SELECTED = 'EntityListAfterContentTypeSelected';
+	public const CONFIG_NAME_OUTPUT_TYPE = 'EntityListAfterContentOutputType';
+	public const CONFIG_NAME_TYPE_ALLOWED = 'EntityListAfterContentTypeAllowed';
+	public const CONFIG_NAME_TYPE_SELECTED = 'EntityListAfterContentTypeSelected';
 
 	/**
 	 *

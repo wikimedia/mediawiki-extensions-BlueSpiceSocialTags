@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"bs-socialtags-desc": "Adde functionalitate de etiquettage a entitates social",
+	"bs-socialtags-tagstext": "Pagina{{plural:$1||s}} ligate ($1)",
+	"bs-socialtags-var-tags": "Paginas ligate",
+	"socialtags": "Paginas ligate",
+	"bs-socialtags-special-heading": "Paginas ligate",
+	"apihelp-bs-socialtags-tasks-summary": "Forni processos pro modificar le paginas ligate de entitates",
+	"action-social-tagging": "modificar paginas ligate",
+	"right-social-tagging": "Modificar paginas ligate",
+	"bs-socialtags-special-invalid-title": "Le parametro date, \"$1\", non es un pagina valide"
+}

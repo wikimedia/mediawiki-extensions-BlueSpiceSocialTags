@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"列维劳德"
+		]
+	},
+	"bs-socialtags-desc": "向社会总和添加标记功能",
+	"bs-socialtags-tagstext": "链接的{{plural:$1|页面}} ($1)",
+	"bs-socialtags-var-tags": "链接的页面",
+	"socialtags": "链接的页面",
+	"bs-socialtags-special-heading": "链接的页面",
+	"apihelp-bs-socialtags-tasks-summary": "为编辑总和链接的页面提供任务",
+	"action-social-tagging": "编辑链接的页面",
+	"right-social-tagging": "编辑链接的页面",
+	"bs-socialtags-special-invalid-title": "给定的参数“$1”不是有效的页面"
+}

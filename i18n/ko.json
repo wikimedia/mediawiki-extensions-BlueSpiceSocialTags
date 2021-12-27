@@ -4,5 +4,10 @@
 			"Ykhwong"
 		]
 	},
+	"bs-socialtags-var-tags": "링크된 문서",
+	"socialtags": "링크된 문서",
+	"bs-socialtags-special-heading": "링크된 문서",
+	"action-social-tagging": "링크된 문서를 편집할",
+	"right-social-tagging": "링크된 문서 편집",
 	"bs-socialtags-special-invalid-title": "지정된 \"$1\" 변수는 유효한 문서가 아닙니다"
 }

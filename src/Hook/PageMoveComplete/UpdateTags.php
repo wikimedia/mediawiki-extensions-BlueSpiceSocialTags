@@ -9,7 +9,6 @@ use BlueSpice\Social\Data\Entity\Store;
 use BlueSpice\Social\Entity;
 use BlueSpice\Social\Tags\EntityListContext\SpecialTags;
 use BlueSpice\Social\Tags\Job\UpdateTags as Job;
-use JobQueueGroup;
 use MediaWiki\MediaWikiServices;
 use MWException;
 use Title;
@@ -86,7 +85,7 @@ class UpdateTags extends PageMoveComplete {
 			$entity->getTitle(),
 			[ 'tags' => $tags ]
 		);
-		JobQueueGroup::singleton()->push(
+		MediaWikiServices::getInstance()->getJobQueueGroup()->push(
 			$job
 		);
 	}

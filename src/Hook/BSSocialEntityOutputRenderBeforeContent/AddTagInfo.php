@@ -23,17 +23,22 @@ class AddTagInfo extends BSSocialEntityOutputRenderBeforeContent {
 			'class' => 'bs-social-beforecontent-tags',
 		] );
 
+		// show only first tag which is not a talkpage in entity
+		// all others are available in dropdown menu in entity
 		foreach ( $data['tags'] as $tag ) {
 			$title = Title::newFromText( $tag );
 			if ( !$title ) {
 				continue;
 			}
-
+			if ( $title->isTalkPage() ) {
+				continue;
+			}
 			$this->sOut .= Html::element(
 				'a',
 				[ 'href' => $title->getLocalURL() ],
 				"#$tag"
 			);
+			break;
 		}
 		$this->sOut .= Html::closeElement( 'span' );
 		return true;

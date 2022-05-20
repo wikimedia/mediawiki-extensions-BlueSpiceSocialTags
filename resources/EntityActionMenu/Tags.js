@@ -16,7 +16,7 @@ bs.social.EntityActionMenuTags.Tags = function ( entityActionMenu, data ) {
 	var countTags = me.entityActionMenu.entity.data.get( 'tags', [] ).length;
 
 	me.$element = null;
-	me.$element = $( '<li><a class="dropdown-item bs-social-entity-action-tags">'
+	me.$element = $( '<li class="dropdown-item"><a class="bs-social-entity-action-tags">'
 		+ '<span>' + mw.message( 'bs-socialtags-tagstext', countTags ).text() + '</span>'
 		+ '</a></li>'
 	);

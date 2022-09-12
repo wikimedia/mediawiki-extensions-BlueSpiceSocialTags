@@ -19,7 +19,6 @@ use BlueSpice\Renderer\Params;
 use BlueSpice\Social\Renderer\EntityList;
 use BlueSpice\Social\Tags\EntityListContext\SpecialTags;
 use BlueSpice\SpecialPage;
-use MediaWiki\MediaWikiServices;
 use Title;
 
 class Tags extends SpecialPage {
@@ -67,7 +66,7 @@ class Tags extends SpecialPage {
 			ListValue::KEY_PROPERTY => 'tags',
 			ListValue::KEY_VALUE => [ $title->getFullText() ]
 		];
-		$renderer = MediaWikiServices::getInstance()->getService( 'BSRendererFactory' )->get(
+		$renderer = $this->services->getService( 'BSRendererFactory' )->get(
 			'entitylist',
 			new Params( [
 				EntityList::PARAM_CONTEXT => $context,

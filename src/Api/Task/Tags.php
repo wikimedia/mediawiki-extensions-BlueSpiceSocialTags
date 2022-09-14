@@ -30,7 +30,6 @@ namespace BlueSpice\Social\Tags\Api\Task;
 use BlueSpice\Api\Response\Standard;
 use BlueSpice\Social\Entity;
 use FormatJson;
-use MediaWiki\MediaWikiServices;
 use Title;
 
 /**
@@ -73,7 +72,7 @@ class Tags extends \BSApiTasksBase {
 		if ( empty( $taskData->tags ) ) {
 			$taskData->tags = [];
 		}
-		$entity = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )->newFromID(
+		$entity = $this->services->getService( 'BSEntityFactory' )->newFromID(
 			$taskData->{Entity::ATTR_ID},
 			$taskData->{Entity::ATTR_TYPE}
 		);
@@ -91,7 +90,7 @@ class Tags extends \BSApiTasksBase {
 		}
 
 		$data = $entity->getFullData();
-		$pm = MediaWikiServices::getInstance()->getPermissionManager();
+		$pm = $this->services->getPermissionManager();
 		foreach ( $taskData->tags as $key => $tag ) {
 			if ( in_array( $tag, $data['tags'] ) ) {
 				continue;

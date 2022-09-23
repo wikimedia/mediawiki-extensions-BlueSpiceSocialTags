@@ -6,6 +6,7 @@ use BlueSpice\Social\Hook\BSSocialEntityListInitialized;
 use BlueSpice\Social\Renderer\EntityList;
 use BlueSpice\Social\Topics\Entity\Topic;
 use BlueSpice\Social\Topics\EntityListContext\DiscussionPage;
+use MediaWiki\MediaWikiServices;
 use MWStake\MediaWiki\Component\DataStore\FieldType;
 use MWStake\MediaWiki\Component\DataStore\Filter\ListValue;
 use MWStake\MediaWiki\Component\DataStore\Filter\Numeric;
@@ -40,8 +41,11 @@ class ReplaceDiscussionPageListFilter extends BSSocialEntityListInitialized {
 		$title = $this->entityList->getContext()->getParent()->getRelatedTitle();
 		$value = [];
 		$value[0] = $title->getFullText();
-		if ( $title->getOtherPage() ) {
-			$value[1] = $title->getOtherPage()->getFullText();
+		$services = MediaWikiServices::getInstance();
+		$namespaceInfo = $services->getNamespaceInfo();
+		if ( $namespaceInfo->getAssociatedPage( $title ) ) {
+			$associatedPage = $namespaceInfo->getAssociatedPage( $title );
+			$value[1] = $services->getTitleFormatter()->getFullText( $associatedPage );
 		}
 
 		$this->args[EntityList::PARAM_FILTER][] = (object)[

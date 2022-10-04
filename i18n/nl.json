@@ -3,6 +3,7 @@
 		"authors": [
 			"Elroy",
 			"Mainframe98",
+			"McDutchie",
 			"Romaine"
 		]
 	},
@@ -11,5 +12,8 @@
 	"action-social-tagging": "gekoppelde pagina's te bewerken",
 	"right-social-tagging": "Gekoppelde pagina's bewerken",
 	"bs-socialtags-var-tags": "Gekoppelde pagina's",
-	"bs-socialtags-special-heading": "Gekoppelde pagina's"
+	"bs-socialtags-special-heading": "Gekoppelde pagina's",
+	"bs-socialtags-desc": "Voegt tagging-functionaliteit toe aan sociale entiteiten",
+	"apihelp-bs-socialtags-tasks-summary": "Biedt taken voor het bewerken van de gekoppelde pagina's van entiteiten",
+	"bs-socialtags-special-invalid-title": "Gegeven parameter \"$1\" is geen geldige pagina"
 }

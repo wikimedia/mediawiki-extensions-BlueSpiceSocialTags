@@ -1,8 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Steeve815"
 		]
 	},
-	"bs-socialtags-var-tags": "דפים מקושרים"
+	"bs-socialtags-var-tags": "דפים מקושרים",
+	"bs-socialtags-desc": "מוסיפה פונקציונליות תיוג לישויות חברתיות",
+	"bs-socialtags-tagstext": "{{plural:$1|דף מקושר|דפים מקושרים}} ($1)",
+	"socialtags": "דפים מקושרים",
+	"bs-socialtags-special-heading": "דפים מקושרים",
+	"apihelp-bs-socialtags-tasks-summary": "אספקת משימות לעריכת הדפים המקושרים של ישויות",
+	"action-social-tagging": "לערוך דפים מקושרים",
+	"right-social-tagging": "עריכת דפים מקושרים",
+	"bs-socialtags-special-invalid-title": "הפרמטר הנתון \"$1\" אינו דף תקין"
 }

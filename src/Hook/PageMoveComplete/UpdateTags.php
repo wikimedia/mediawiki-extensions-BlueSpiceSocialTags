@@ -2,8 +2,6 @@
 namespace BlueSpice\Social\Tags\Hook\PageMoveComplete;
 
 use BlueSpice\Context;
-use BlueSpice\Data\Filter\ListValue;
-use BlueSpice\Data\ReaderParams;
 use BlueSpice\Hook\PageMoveComplete;
 use BlueSpice\Social\Data\Entity\Store;
 use BlueSpice\Social\Entity;
@@ -11,6 +9,8 @@ use BlueSpice\Social\Tags\EntityListContext\SpecialTags;
 use BlueSpice\Social\Tags\Job\UpdateTags as Job;
 use MediaWiki\MediaWikiServices;
 use MWException;
+use MWStake\MediaWiki\Component\DataStore\Filter\ListValue;
+use MWStake\MediaWiki\Component\DataStore\ReaderParams;
 use Title;
 
 class UpdateTags extends PageMoveComplete {

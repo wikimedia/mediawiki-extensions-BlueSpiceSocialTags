@@ -2,10 +2,10 @@
 
 namespace BlueSpice\Social\Tags\EntityListContext;
 
-use BlueSpice\Data\Filter\ListValue;
 use BlueSpice\Social\Entity;
 use Config;
 use IContextSource;
+use MWStake\MediaWiki\Component\DataStore\Filter\ListValue;
 use Title;
 use User;
 

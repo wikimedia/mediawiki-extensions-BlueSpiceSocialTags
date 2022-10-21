@@ -13,12 +13,12 @@
 namespace BlueSpice\Social\Tags\Special;
 
 use BlueSpice\Context;
-use BlueSpice\Data\FieldType;
-use BlueSpice\Data\Filter\ListValue;
 use BlueSpice\Renderer\Params;
 use BlueSpice\Social\Renderer\EntityList;
 use BlueSpice\Social\Tags\EntityListContext\SpecialTags;
 use BlueSpice\SpecialPage;
+use MWStake\MediaWiki\Component\DataStore\FieldType;
+use MWStake\MediaWiki\Component\DataStore\Filter\ListValue;
 use Title;
 
 class Tags extends SpecialPage {

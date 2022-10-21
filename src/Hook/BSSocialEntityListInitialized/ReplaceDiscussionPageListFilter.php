@@ -2,13 +2,13 @@
 
 namespace BlueSpice\Social\Tags\Hook\BSSocialEntityListInitialized;
 
-use BlueSpice\Data\FieldType;
-use BlueSpice\Data\Filter\ListValue;
-use BlueSpice\Data\Filter\Numeric;
 use BlueSpice\Social\Hook\BSSocialEntityListInitialized;
 use BlueSpice\Social\Renderer\EntityList;
 use BlueSpice\Social\Topics\Entity\Topic;
 use BlueSpice\Social\Topics\EntityListContext\DiscussionPage;
+use MWStake\MediaWiki\Component\DataStore\FieldType;
+use MWStake\MediaWiki\Component\DataStore\Filter\ListValue;
+use MWStake\MediaWiki\Component\DataStore\Filter\Numeric;
 
 class ReplaceDiscussionPageListFilter extends BSSocialEntityListInitialized {
 	/**

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Meno25",
 			"ديفيد"
 		]
 	},
@@ -11,5 +12,6 @@
 	"bs-socialtags-special-heading": "صفحات مرتبطة",
 	"apihelp-bs-socialtags-tasks-summary": "يوفر مهاما لتحرير صفحات الكيانات المرتبطة",
 	"action-social-tagging": "تحرير الصفحات المرتبطة",
-	"right-social-tagging": "تحرير الصفحات المرتبطة"
+	"right-social-tagging": "تحرير الصفحات المرتبطة",
+	"bs-socialtags-special-invalid-title": "المعلمة المحددة \"$1\" ليست صفحة صالحة"
 }

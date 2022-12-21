@@ -75,7 +75,7 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 			ListValue::KEY_PROPERTY => 'tags',
 			ListValue::KEY_VALUE => [
 				$this->getTitle()->getFullText(),
-				$this->getTitle()->getTalkPage()->getFullText()
+				$this->getTitle()->getTalkPageIfDefined()->getFullText()
 			],
 			ListValue::KEY_COMPARISON => ListValue::COMPARISON_CONTAINS,
 			ListValue::KEY_TYPE => 'list'

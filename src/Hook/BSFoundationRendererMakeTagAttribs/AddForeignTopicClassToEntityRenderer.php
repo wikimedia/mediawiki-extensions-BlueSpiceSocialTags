@@ -6,6 +6,8 @@ use BlueSpice\Hook\BSFoundationRendererMakeTagAttribs;
 use BlueSpice\Social\Entity as SocialEntity;
 use BlueSpice\Social\Renderer\Entity;
 use BlueSpice\Social\Topics\EntityListContext\DiscussionPage;
+use MediaWiki\MediaWikiServices;
+use Title;
 
 class AddForeignTopicClassToEntityRenderer extends BSFoundationRendererMakeTagAttribs {
 
@@ -34,8 +36,14 @@ class AddForeignTopicClassToEntityRenderer extends BSFoundationRendererMakeTagAt
 		if ( $this->renderer->getContext()->getTitle()->getNamespace() < 0 ) {
 			return true;
 		}
-		$title = $this->renderer->getEntity()->getRelatedTitle()->getTalkPageIfDefined();
-		$ctxTitle = $this->renderer->getContext()->getTitle()->getTalkPageIfDefined();
+		$namespaceInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
+		$titleTarget = $namespaceInfo->getTalkPage(
+			$this->renderer->getEntity()->getRelatedTitle()
+		);
+		$title = Title::newFromLinkTarget( $titleTarget );
+		$ctxTitle = $namespaceInfo->getTalkPage(
+			$this->renderer->getContext()->getTitle()
+		);
 
 		if ( !$title || !$ctxTitle ) {
 			return true;

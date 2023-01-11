@@ -4,5 +4,13 @@
 			"Eleassar"
 		]
 	},
-	"bs-socialtags-desc": "Socialnim entitetam doda funkcionalnost označevanja"
+	"bs-socialtags-desc": "Socialnim entitetam doda funkcionalnost označevanja",
+	"bs-socialtags-tagstext": "{{plural:$1|Povezana strani|Povezane strani}} ($1)",
+	"bs-socialtags-var-tags": "Povezane strani",
+	"socialtags": "Povezane strani",
+	"bs-socialtags-special-heading": "Povezane strani",
+	"apihelp-bs-socialtags-tasks-summary": "Zagotavlja opravila za urejanje povezanih strani entitet",
+	"action-social-tagging": "urejanje povezanih strani",
+	"right-social-tagging": "Urejanje povezanih strani",
+	"bs-socialtags-special-invalid-title": "Predloženi parameter »$1« ni veljavna stran"
 }

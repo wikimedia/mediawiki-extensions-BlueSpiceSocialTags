@@ -5,6 +5,7 @@ namespace BlueSpice\Social\Tags\EntityListContext;
 use BlueSpice\Social\Entity;
 use Config;
 use IContextSource;
+use MediaWiki\MediaWikiServices;
 use MWStake\MediaWiki\Component\DataStore\Filter\ListValue;
 use Title;
 use User;
@@ -71,11 +72,14 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 	 * @return \stdClass
 	 */
 	protected function getTagsFilter() {
+		$services = MediaWikiServices::getInstance();
+		$talkPageTarget = $services->getNamespaceInfo()->getTalkPage( $this->getTitle() );
+		$fullText = $services->getTitleFormatter()->getFullText( $talkPageTarget );
 		return (object)[
 			ListValue::KEY_PROPERTY => 'tags',
 			ListValue::KEY_VALUE => [
 				$this->getTitle()->getFullText(),
-				$this->getTitle()->getTalkPageIfDefined()->getFullText()
+				$fullText
 			],
 			ListValue::KEY_COMPARISON => ListValue::COMPARISON_CONTAINS,
 			ListValue::KEY_TYPE => 'list'

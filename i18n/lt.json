@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nokeoo"
+		]
+	},
+	"bs-socialtags-desc": "Prideda socialinių objektų žymėjimo funkciją",
+	"bs-socialtags-tagstext": "{{plural:$1|Susietas puslapis|Susieti puslapiai}} ($1)",
+	"bs-socialtags-var-tags": "Susieti puslapiai",
+	"socialtags": "Susieti puslapiai",
+	"bs-socialtags-special-heading": "Susieti puslapiai",
+	"action-social-tagging": "keisti susietus puslapius",
+	"right-social-tagging": "Keisti susietus puslapius",
+	"bs-socialtags-special-invalid-title": "Nurodytas parametras „$1“ nėra tinkamas puslapis"
+}

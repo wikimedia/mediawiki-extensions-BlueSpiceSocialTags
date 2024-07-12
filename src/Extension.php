@@ -28,8 +28,6 @@
 
 namespace BlueSpice\Social\Tags;
 
-use MWStake\MediaWiki\Component\CommonUserInterface\LessVars;
-
 class Extension extends \BlueSpice\Extension {
 
 	public static function onRegistration() {
@@ -43,7 +41,5 @@ class Extension extends \BlueSpice\Extension {
 				NS_SOCIALENTITY
 			]
 		);
-		$lessVars = LessVars::getInstance();
-		$lessVars->setVar( 'bs-social-background-color-foreign', '#D6DCE7' );
 	}
 }

@@ -105,6 +105,11 @@
 		"localBasePath": "resources",
 		"remoteExtPath": "BlueSpiceSocialTags/resources"
 	},
+	"HookHandlers": {
+		"common-user-interface": {
+			"class": "\\BlueSpice\\Social\\Tags\\HookHandler\\CommonUserInterface"
+		}
+	},
 	"Hooks": {
 		"BSSocialModuleDepths": "\\BlueSpice\\Social\\Tags\\Hook\\BSSocialModuleDepths\\AddModules::callback",
 		"BSEntitySetValuesByObject": "\\BlueSpice\\Social\\Tags\\Hook\\BSEntitySetValuesByObject\\SetTags::callback",
@@ -119,7 +124,8 @@
 		"PageMoveComplete": "\\BlueSpice\\Social\\Tags\\Hook\\PageMoveComplete\\UpdateTags::callback",
 		"BSFoundationRendererMakeTagAttribs": "\\BlueSpice\\Social\\Tags\\Hook\\BSFoundationRendererMakeTagAttribs\\AddForeignTopicClassToEntityRenderer::callback",
 		"BSSocialEntityGetActions": "\\BlueSpice\\Social\\Tags\\Hook\\BSSocialEntityGetActions\\AddTags::callback",
-		"BSUsageTrackerRegisterCollectors": "\\BlueSpice\\Social\\Tags\\Hook\\BSUsageTrackerRegisterCollectors\\NoOfDiscussionsLinkedPages::callback"
+		"BSUsageTrackerRegisterCollectors": "\\BlueSpice\\Social\\Tags\\Hook\\BSUsageTrackerRegisterCollectors\\NoOfDiscussionsLinkedPages::callback",
+		"MWStakeCommonUILessVarsInit": "common-user-interface"
 	},
 	"manifest_version": 2
 }

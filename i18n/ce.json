@@ -4,5 +4,13 @@
 			"Умар"
 		]
 	},
-	"bs-socialtags-special-heading": "Йихкина агӀонаш"
+	"bs-socialtags-desc": "Коьртачу социалан хаамашна тӀетоьхна тегийн функционал",
+	"bs-socialtags-tagstext": "Йихкина {{plural:$1|агӀо}} ($1)",
+	"bs-socialtags-var-tags": "Йихкина агӀонаш",
+	"socialtags": "Йихкина агӀонаш",
+	"bs-socialtags-special-heading": "Йихкина агӀонаш",
+	"apihelp-bs-socialtags-tasks-summary": "Йоьзна коьрта хаамийн агӀонаш хийца бакъо ло",
+	"action-social-tagging": "гергара агӀонаш хийца",
+	"right-social-tagging": "Гергара агӀонаш хийца",
+	"bs-socialtags-special-invalid-title": "Йелла параметр «$1» нийса агӀо йац"
 }

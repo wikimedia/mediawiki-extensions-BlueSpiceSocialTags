@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Toliño"
+		]
+	},
+	"bs-socialtags-desc": "Engade funcionalidade de etiquetado ás entidades sociais",
+	"bs-socialtags-tagstext": "{{plural:$1|Páxina ligada|Páxinas ligadas}} ($1)",
+	"bs-socialtags-var-tags": "Páxinas ligadas",
+	"socialtags": "Páxinas ligadas",
+	"bs-socialtags-special-heading": "Páxinas ligadas",
+	"apihelp-bs-socialtags-tasks-summary": "Ofrece tarefas para editar as páxinas ligadas das entidades",
+	"action-social-tagging": "editar as páxinas ligadas",
+	"right-social-tagging": "Editar as páxinas ligadas",
+	"bs-socialtags-special-invalid-title": "O parámetro indicado, «$1», non é unha páxina válida"
+}

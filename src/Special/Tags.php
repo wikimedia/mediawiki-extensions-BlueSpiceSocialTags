@@ -24,7 +24,11 @@ use Title;
 class Tags extends SpecialPage {
 
 	public function __construct() {
-		parent::__construct( 'SocialTags', 'read', false );
+		parent::__construct( 'SocialTags', 'read' );
+	}
+
+	public function isListed(): bool {
+		return false;
 	}
 
 	/**

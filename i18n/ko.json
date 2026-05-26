@@ -11,7 +11,7 @@
 	"socialtags": "링크된 문서",
 	"bs-socialtags-special-heading": "링크된 문서",
 	"apihelp-bs-socialtags-tasks-summary": "엔티티의 링크된 문서를 편집하기 위한 작업을 제공합니다.",
-	"action-social-tagging": "링크된 문서를 편집할",
+	"action-social-tagging": "링크된 문서 편집",
 	"right-social-tagging": "링크된 문서 편집",
 	"bs-socialtags-special-invalid-title": "지정된 \"$1\" 매개변수는 유효한 문서가 아닙니다"
 }

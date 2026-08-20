@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"شاه زمان پټان"
+		]
+	},
+	"bs-socialtags-desc": "ټولنيزو شتونتياوو ته د نښلن ورگډولو کړنچار ورگډوي",
+	"bs-socialtags-tagstext": "{{plural:$1|تړونی شوی مخ|تړوني شوي مخونه}} ($1)",
+	"bs-socialtags-var-tags": "تړوني شوي مخونه",
+	"socialtags": "تړوني شوي مخونه",
+	"bs-socialtags-special-heading": "تړوني شوي مخونه",
+	"apihelp-bs-socialtags-tasks-summary": "د شتونتياوو د تړوني‌شويو مخونو د سمولو لپاره کاردندې چمتو کوي",
+	"action-social-tagging": "تړوني شوي مخونه سمول",
+	"right-social-tagging": "تړوني شوي مخونه سمول",
+	"bs-socialtags-special-invalid-title": "ورکړل شوی ارزښت \"$1\" باوري مخ نه دی"
+}

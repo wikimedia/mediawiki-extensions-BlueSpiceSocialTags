@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wizzard"
+		]
+	},
+	"bs-socialtags-desc": "Pridáva sociálnym entitám funkciu značkovania",
+	"bs-socialtags-tagstext": "{{PLURAL:$1|Prepojená stránka|Prepojené stránky}} ($1)",
+	"bs-socialtags-var-tags": "Prepojené stránky",
+	"socialtags": "Prepojené stránky",
+	"bs-socialtags-special-heading": "Prepojené stránky",
+	"apihelp-bs-socialtags-tasks-summary": "Poskytuje úlohy na úpravu prepojených stránok entít",
+	"action-social-tagging": "upravovať prepojené stránky",
+	"right-social-tagging": "Upravovať prepojené stránky",
+	"bs-socialtags-special-invalid-title": "Zadaný parameter „$1“ nie je platná stránka"
+}
